@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>訪問理容 やまぶき | 水戸・茨城県の出張散髪</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #FAF7F2;
+      --cream2:   #F0EAE0;
+      --green:    #4A6741;
+      --green-l:  #6B8C62;
+      --terra:    #C4856A;
+      --brown:    #8B6F5C;
+      --text:     #3A3028;
+      --muted:    #7A6A60;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,247,242,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream2);
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: .85rem; color: var(--muted); letter-spacing: .05em; transition: color .2s; }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 6rem 8vw 4rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(107,140,98,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* シグネチャ：和風くし・はさみSVGモチーフ（薄く右背景に） */
+    .hero-art {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: .85;
+    }
+    .hero-art svg { width: min(340px, 90%); height: auto; }
+
+    .hero-copy { max-width: 500px; }
+    .hero-eyebrow {
+      font-size: .8rem;
+      letter-spacing: .18em;
+      color: var(--terra);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--terra);
+    }
+    h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.4;
+      color: var(--green);
+      margin-bottom: 1.2rem;
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 2.2rem;
+      line-height: 2;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--green);
+      color: #fff;
+      padding: .85rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--green-l); transform: translateY(-2px); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 5rem 8vw; }
+    .section-label {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      color: var(--terra);
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+    h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--green);
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--terra);
+      margin: .8rem 0 2rem;
+    }
+
+    /* ── WHY / FEATURE CARDS ── */
+    .bg-cream2 { background: var(--cream2); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+    }
+    .feature-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 2rem 1.6rem;
+      border-top: 3px solid var(--terra);
+    }
+    .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1rem; color: var(--green); margin-bottom: .6rem; font-family: 'Noto Serif JP', serif; }
+    .feature-card p { font-size: .88rem; color: var(--muted); line-height: 1.9; }
+
+    /* ── MENU ── */
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+    .menu-table thead tr {
+      background: var(--green);
+      color: #fff;
+    }
+    .menu-table thead th {
+      padding: .9rem 1.2rem;
+      text-align: left;
+      font-weight: 500;
+      letter-spacing: .05em;
+    }
+    .menu-table tbody tr { border-bottom: 1px solid var(--cream2); transition: background .15s; }
+    .menu-table tbody tr:hover { background: var(--cream2); }
+    .menu-table td { padding: .9rem 1.2rem; color: var(--text); }
+    .menu-table td:last-child { color: var(--terra); font-weight: 500; text-align: right; }
+    .menu-note { margin-top: 1.2rem; font-size: .82rem; color: var(--muted); line-height: 2; }
+    .menu-note span { color: var(--terra); }
+
+    /* ── PROFILE ── */
+    .profile-wrap {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .profile-img-box {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: var(--cream2);
+      border: 3px solid var(--green-l);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .profile-img-box svg { width: 100px; opacity: .4; }
+    .profile-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.4rem;
+      color: var(--green);
+      margin-bottom: .3rem;
+    }
+    .profile-role { font-size: .82rem; color: var(--muted); letter-spacing: .1em; margin-bottom: 1.2rem; }
+    .profile-text { font-size: .92rem; color: var(--text); line-height: 2; }
+    .profile-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
+    .tag {
+      background: var(--cream2);
+      border: 1px solid var(--brown);
+      color: var(--brown);
+      font-size: .78rem;
+      padding: .25rem .8rem;
+      border-radius: 20px;
+      letter-spacing: .05em;
+    }
+
+    /* ── AREA ── */
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .area-card {
+      border: 1px solid var(--cream2);
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .area-dot { width: 8px; height: 8px; background: var(--terra); border-radius: 50%; flex-shrink: 0; }
+    .area-card span { font-size: .9rem; color: var(--text); }
+    .area-note { margin-top: 1.4rem; font-size: .84rem; color: var(--muted); }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      max-width: 540px;
+      background: var(--green);
+      border-radius: 10px;
+      padding: 3rem 3.5rem;
+      color: #fff;
+    }
+    .contact-wrap h2 { color: #fff; margin-bottom: .4rem; }
+    .contact-wrap .divider { background: rgba(255,255,255,.4); }
+    .contact-sub { font-size: .9rem; opacity: .85; margin-bottom: 2rem; line-height: 1.9; }
+    .phone-display {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,.12);
+      border-radius: 6px;
+      padding: 1.2rem 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .phone-icon { font-size: 1.6rem; }
+    .phone-num { font-family: 'Noto Serif JP', serif; font-size: 1.6rem; letter-spacing: .1em; }
+    .phone-hours { font-size: .8rem; opacity: .7; margin-top: .3rem; }
+    .contact-note { font-size: .8rem; opacity: .65; line-height: 1.9; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+    }
+    footer strong { color: rgba(255,255,255,.9); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 4vw; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 4rem 6vw 3rem; min-height: auto; gap: 2rem; }
+      .hero-art { order: -1; }
+      section { padding: 3.5rem 6vw; }
+      .profile-wrap { grid-template-columns: 1fr; }
+      .profile-img-box { margin: 0 auto; }
+      .contact-wrap { padding: 2rem 1.8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">訪問理容 やまぶき</a>
+  <ul class="nav-links">
+    <li><a href="#features">特徴</a></li>
+    <li><a href="#menu">料金</a></li>
+    <li><a href="#profile">施術者</a></li>
+    <li><a href="#area">対応地域</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">茨城県水戸市・周辺エリア対応</p>
+    <h1>ご自宅へ、<br>心地よい<br>散髪を。</h1>
+    <p class="hero-sub">
+      通院が難しい高齢の方や介護施設の皆さまのもとへ、<br>
+      経験豊かな理容師・美容師がお伺いします。<br>
+      いつもの場所で、リラックスしてご利用ください。
+    </p>
+    <a class="btn-primary" href="#contact">
+      &#x260E; まずはお電話ください
+    </a>
+  </div>
+
+  <div class="hero-art">
+    <!-- シグネチャSVG：はさみ＋くし の和風ラインアート -->
+    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- 草花の円形モチーフ -->
+      <circle cx="150" cy="150" r="130" stroke="#C4856A" stroke-width="1.2" stroke-dasharray="4 6"/>
+      <circle cx="150" cy="150" r="108" stroke="#6B8C62" stroke-width="0.8" opacity=".5"/>
+
+      <!-- はさみ -->
+      <g transform="translate(100,70) rotate(20)">
+        <!-- 刃1 -->
+        <path d="M0 0 Q20 30 0 70" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- 刃2 -->
+        <path d="M16 0 Q-4 30 16 70" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- グリップ1 -->
+        <ellipse cx="-8" cy="80" rx="9" ry="14" stroke="#4A6741" stroke-width="2" fill="none"/>
+        <!-- グリップ2 -->
+        <ellipse cx="24" cy="80" rx="9" ry="14" stroke="#4A6741" stroke-width="2" fill="none"/>
+        <!-- 留め具 -->
+        <circle cx="8" cy="35" r="3.5" stroke="#C4856A" stroke-width="1.8" fill="none"/>
+      </g>
+
+      <!-- くし -->
+      <g transform="translate(155,100) rotate(-15)">
+        <!-- 背 -->
+        <rect x="0" y="0" width="70" height="14" rx="4" stroke="#8B6F5C" stroke-width="2" fill="none"/>
+        <!-- 歯 -->
+        <line x1="10" y1="14" x2="10" y2="38" stroke="#8B6F5C" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="18" y1="14" x2="18" y2="42" stroke="#8B6F5C" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="26" y1="14" x2="26" y2="38" stroke="#8B6F5C" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="34" y1="14" x2="34" y2="42" stroke="#8B6F5C" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="42" y1="14" x2="42" y2="38" stroke="#8B6F5C" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="50" y1="14" x2="50" y2="42" stroke="#8B6F5C" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="58" y1="14" x2="58" y2="38" stroke="#8B6F5C" stroke-width="1.8" stroke-linecap="round"/>
+      </g>
+
+      <!-- やまぶき（山吹き花）モチーフ 小さく散らす -->
+      <g transform="translate(68,170)">
+        <circle r="6" fill="none" stroke="#C4856A" stroke-width="1.2"/>
+        <line x1="0" y1="-10" x2="0" y2="-6" stroke="#C4856A" stroke-width="1"/>
+        <line x1="7" y1="-7" x2="4.5" y2="-4.5" stroke="#C4856A" stroke-width="1"/>
+        <line x1="10" y1="0" x2="6" y2="0" stroke="#C4856A" stroke-width="1"/>
+        <line x1="7" y1="7" x2="4.5" y2="4.5" stroke="#C4856A" stroke-width="1"/>
+        <line x1="0" y1="10" x2="0" y2="6" stroke="#C4856A" stroke-width="1"/>
+      </g>
+      <g transform="translate(220,195)">
+        <circle r="5" fill="none" stroke="#C4856A" stroke-width="1"/>
+        <line x1="0" y1="-9" x2="0" y2="-5" stroke="#C4856A" stroke-width=".9"/>
+        <line x1="6.4" y1="-6.4" x2="3.5" y2="-3.5" stroke="#C4856A" stroke-width=".9"/>
+        <line x1="9" y1="0" x2="5" y2="0" stroke="#C4856A" stroke-width=".9"/>
+        <line x1="6.4" y1="6.4" x2="3.5" y2="3.5" stroke="#C4856A" stroke-width=".9"/>
+        <line x1="0" y1="9" x2="0" y2="5" stroke="#C4856A" stroke-width=".9"/>
+      </g>
+      <g transform="translate(150,225)">
+        <circle r="4" fill="none" stroke="#6B8C62" stroke-width="1"/>
+        <line x1="0" y1="-7" x2="0" y2="-4" stroke="#6B8C62" stroke-width=".8"/>
+        <line x1="5" y1="-5" x2="2.8" y2="-2.8" stroke="#6B8C62" stroke-width=".8"/>
+        <line x1="7" y1="0" x2="4" y2="0" stroke="#6B8C62" stroke-width=".8"/>
+        <line x1="5" y1="5" x2="2.8" y2="2.8" stroke="#6B8C62" stroke-width=".8"/>
+        <line x1="0" y1="7" x2="0" y2="4" stroke="#6B8C62" stroke-width=".8"/>
+      </g>
+
+      <!-- テキスト -->
+      <text x="150" y="270" text-anchor="middle" font-family="serif" font-size="11" fill="#8B6F5C" letter-spacing="4">YAMABUKI</text>
+    </svg>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="bg-cream2">
+  <p class="section-label">Features</p>
+  <h2>選ばれる理由</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🏠</div>
+      <h3>住み慣れた場所でカット</h3>
+      <p>ご自宅・老人ホーム・グループホームなど、慣れ親しんだ環境でゆっくりと施術を受けていただけます。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">♿</div>
+      <h3>介護・医療への理解</h3>
+      <p>寝たきりや車椅子の方にも対応。介護知識を持つ施術者が安全を最優先に丁寧に対応します。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🕐</div>
+      <h3>時間の融通が利く</h3>
+      <p>ご本人・ご家族・施設スタッフのご都合に合わせて日時を調整します。まずはお気軽にご相談ください。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✂️</div>
+      <h3>国家資格保有者が施術</h3>
+      <p>理容師・美容師の国家資格を持つプロが担当。衛生管理も徹底しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <p class="section-label">Price Menu</p>
+  <h2>料金メニュー</h2>
+  <table class="menu-table">
+    <thead>
+      <tr>
+        <th>メニュー</th>
+        <th>内容・対象</th>
+        <th style="text-align:right">料金（税込）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>カット（男性）</td>
+        <td>シャンプー・ブロー込み</td>
+        <td>¥3,500〜</td>
+      </tr>
+      <tr>
+        <td>カット（女性）</td>
+        <td>シャンプー・ブロー込み</td>
+        <td>¥4,000〜</td>
+      </tr>
+      <tr>
+        <td>カット＋白髪染め</td>
+        <td>ショート〜ミディアム</td>
+        <td>¥7,000〜</td>
+      </tr>
+      <tr>
+        <td>シャンプー・セット</td>
+        <td>カット不要の方向け</td>
+        <td>¥2,000〜</td>
+      </tr>
+      <tr>
+        <td>顔剃り（男性）</td>
+        <td>カットとのセットも可</td>
+        <td>¥1,000〜</td>
+      </tr>
+      <tr>
+        <td>出張費</td>
+        <td>水戸市内</td>
+        <td>¥0（無料）</td>
+      </tr>
+      <tr>
+        <td>出張費</td>
+        <td>水戸市外（周辺市町村）</td>
+        <td>¥500〜</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="menu-note">
+    ※ 料金は目安です。髪の長さ・状態により変動する場合があります。<br>
+    ※ 介護施設・グループホームへの定期訪問は<span>別途お見積り</span>いたします。<br>
+    ※ 初回の方は無料カウンセリングを実施しています。お気軽にご連絡ください。
+  </p>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="bg-cream2">
+  <p class="section-label">About</p>
+  <h2>施術者プロフィール</h2>
+  <div class="profile-wrap">
+    <div class="profile-img-box">
+      <!-- 人物シルエットのSVGプレースホルダー -->
+      <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="28" r="18" stroke="#8B6F5C" stroke-width="2"/>
+        <path d="M8 95 C8 68 72 68 72 95" stroke="#8B6F5C" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div>
+      <p class="profile-name">山田 花子（仮）</p>
+      <p class="profile-role">理容師・美容師 国家資格保有</p>
+      <p class="profile-text">
+        茨城県水戸市出身。美容専門学校卒業後、市内の美容院に10年以上勤務。
+        その後、ご自身の家族の介護をきっかけに「外出が難しい方にも、きれいな髪で毎日を過ごしてほしい」という思いから、訪問理容を開始しました。<br><br>
+        施術中はゆっくりとお話を聞きながら、お客様のペースを大切にしています。
+        高齢者の方の体への負担を考慮した施術に力を入れています。
+      </p>
+      <div class="profile-tags">
+        <span class="tag">理容師免許</span>
+        <span class="tag">美容師免許</span>
+        <span class="tag">訪問理容10年以上</span>
+        <span class="tag">介護初任者研修修了</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section id="area">
+  <p class="section-label">Service Area</p>
+  <h2>対応地域</h2>
+  <div class="area-grid">
+    <div class="area-card"><span class="area-dot"></span><span>水戸市</span></div>
+    <div class="area-card"><span class="area-dot"></span><span>ひたちなか市</span></div>
+    <div class="area-card"><span class="area-dot"></span><span>那珂市</span></div>
+    <div class="area-card"><span class="area-dot"></span><span>笠間市</span></div>
+    <div class="area-card"><span class="area-dot"></span><span>小美玉市</span></div>
+    <div class="area-card"><span class="area-dot"></span><span>茨城町</span></div>
+    <div class="area-card"><span class="area-dot"></span><span>大洗町</span></div>
+    <div class="area-card"><span class="area-dot"></span><span>城里町</span></div>
+  </div>
+  <p class="area-note">※ 上記以外のエリアもご相談ください。遠方の場合は別途出張費をいただく場合があります。</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-cream2">
+  <p class="section-label">Contact</p>
+  <div class="contact-wrap">
+    <h2>お問い合わせ・ご予約</h2>
+    <div class="divider"></div>
+    <p class="contact-sub">
+      ご予約・ご質問はお電話にて承っております。<br>
+      「訪問理容の問い合わせです」とお伝えください。
+    </p>
+    <div class="phone-display">
+      <span class="phone-icon">📞</span>
+      <div>
+        <div class="phone-num">000-0000-0000</div>
+        <div class="phone-hours">受付時間：9:00〜18:00（年中無休）</div>
+      </div>
+    </div>
+    <p class="contact-note">
+      ・初回は無料カウンセリングを実施しています<br>
+      ・介護施設の担当者様からのお問い合わせも歓迎します<br>
+      ・留守番電話へのメッセージにも折り返しご連絡いたします
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>訪問理容 やまぶき</strong>｜茨城県水戸市</p>
+  <p style="margin-top:.4rem">&copy; 2026 訪問理容 やまぶき. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
