@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>訪問理美容 ひとの輪 | 水戸市・茨城県の出張散髪・美容</title>
+  <script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -1675,15 +1676,16 @@
 </footer>
 
 <script>
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-  window.addEventListener('load', function() {
+  function resetScroll() {
     if (window.location.hash) {
       history.replaceState(null, null, window.location.pathname);
     }
     window.scrollTo(0, 0);
-  });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+  window.addEventListener('load', resetScroll);
+  window.addEventListener('pageshow', resetScroll);
 </script>
 </body>
 </html>
