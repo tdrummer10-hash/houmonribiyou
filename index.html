@@ -1676,16 +1676,17 @@
 </footer>
 
 <script>
-  function resetScroll() {
-    if (window.location.hash) {
-      history.replaceState(null, null, window.location.pathname);
-    }
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }
-  window.addEventListener('load', resetScroll);
-  window.addEventListener('pageshow', resetScroll);
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = this.getAttribute('href').slice(1);
+        var target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  });
 </script>
 </body>
 </html>
