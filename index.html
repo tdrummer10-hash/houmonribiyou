@@ -10,18 +10,29 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:    #B8E4F0;
-      --blue-m:  #7ECDE8;
-      --blue-d:  #4AA8C8;
-      --navy:    #1B3A5C;
-      --navy-l:  #2A5278;
-      --yellow:  #F5C842;
-      --yellow-d:#D4A820;
+      --green:   #6B9E7A;
+      --green-l: #9EC4A8;
+      --green-ll:#D4EBD9;
+      --peach:   #D97A5A;
+      --peach-l: #F0B89A;
+      --peach-ll:#FAE8DE;
+      --cream:   #FAF8F4;
+      --cream2:  #F2EDE4;
+      --gold:    #C8943A;
+      --brown:   #3A2A18;
       --white:   #FFFFFF;
-      --gray-bg: #F2F5F8;
-      --text:    #1B3A5C;
-      --muted:   #5A7A96;
+      --gray-bg: #F5F1EB;
+      --text:    #2D3820;
+      --muted:   #6B7A60;
       --required:#E53935;
+      /* 後方互換エイリアス */
+      --navy:    #2D3820;
+      --navy-l:  #3D4E30;
+      --blue:    var(--green-ll);
+      --blue-m:  var(--green-l);
+      --blue-d:  var(--green);
+      --yellow:  var(--peach);
+      --yellow-d:var(--peach);
     }
 
     html { scroll-behavior: smooth; }
@@ -94,8 +105,8 @@
     }
     .nav-links a:hover { color: var(--navy); }
     .nav-contact-btn {
-      background: var(--yellow);
-      color: var(--navy);
+      background: var(--green);
+      color: white;
       font-size: .8rem;
       font-weight: 700;
       padding: .5rem 1.2rem;
@@ -104,7 +115,7 @@
       letter-spacing: .06em;
       transition: background .2s;
     }
-    .nav-contact-btn:hover { background: var(--yellow-d); }
+    .nav-contact-btn:hover { background: var(--green-l); }
 
     /* ── 固定サイドボタン ── */
     .fixed-contact {
@@ -120,8 +131,8 @@
     .fixed-btn {
       writing-mode: vertical-rl;
       text-orientation: mixed;
-      background: var(--yellow);
-      color: var(--navy);
+      background: var(--green);
+      color: white;
       font-size: .82rem;
       font-weight: 700;
       padding: 1.2rem .7rem;
@@ -133,7 +144,7 @@
     }
     .fixed-btn:hover { opacity: .85; }
     .fixed-btn.mail-btn {
-      background: var(--blue-d);
+      background: var(--peach);
       color: white;
       margin-top: .4rem;
     }
@@ -183,10 +194,10 @@
       margin-bottom: 1.2rem;
       font-weight: 600;
     }
-    .hero h1 span { color: var(--blue-d); }
+    .hero h1 span { color: var(--green); }
     .hero-tagline {
       font-size: .82rem;
-      color: var(--navy);
+      color: var(--text);
       letter-spacing: .1em;
       margin-bottom: .3rem;
       position: relative;
@@ -199,8 +210,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: var(--blue-m);
-      border-top: 1px dashed var(--blue-m);
+      border-top: 1px dashed var(--peach-l);
     }
     .hero-desc {
       font-size: .92rem;
@@ -213,41 +223,50 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: var(--yellow);
-      color: var(--navy);
+      background: var(--peach);
+      color: white;
       padding: .85rem 2rem;
       border-radius: 50px;
       text-decoration: none;
       font-size: .88rem;
       font-weight: 700;
       letter-spacing: .06em;
-      box-shadow: 0 4px 14px rgba(245,200,66,0.4);
+      box-shadow: 0 4px 14px rgba(217,122,90,0.35);
       transition: transform .2s, box-shadow .2s;
     }
-    .btn-yellow:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,200,66,0.5); }
+    .btn-yellow:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(217,122,90,0.45); }
     .btn-outline {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
       background: transparent;
-      color: var(--navy);
+      color: var(--green);
       padding: .85rem 2rem;
       border-radius: 50px;
       text-decoration: none;
       font-size: .88rem;
       font-weight: 500;
       letter-spacing: .06em;
-      border: 2px solid var(--navy);
+      border: 2px solid var(--green);
       transition: background .2s, color .2s;
     }
-    .btn-outline:hover { background: var(--navy); color: white; }
+    .btn-outline:hover { background: var(--green); color: white; }
 
     .hero-art {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .hero-art img { width: min(460px,100%); height: auto; filter: drop-shadow(0 16px 40px rgba(27,58,92,0.12)); }
+    .hero-art {
+      position: relative;
+    }
+    .hero-art img {
+      width: min(480px,100%);
+      height: auto;
+      mix-blend-mode: multiply;
+      position: relative;
+      z-index: 1;
+    }
 
     /* ── はさみ区切り ── */
     .scissors-divider {
@@ -261,7 +280,7 @@
       top: 50%;
       left: 10%;
       right: 10%;
-      border-top: 2px dashed rgba(184,228,240,0.8);
+      border-top: 2px dashed rgba(158,196,168,0.6);
     }
     .scissors-icon {
       position: relative;
@@ -397,28 +416,27 @@
       transition: transform .2s, box-shadow .2s;
     }
     .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-    .feature-card:nth-child(1) { border-color: #B8E4F0; background: rgba(184,228,240,0.08); }
-    .feature-card:nth-child(2) { border-color: #A8E6C8; background: rgba(168,230,200,0.08); }
-    .feature-card:nth-child(3) { border-color: #F5C842; background: rgba(245,200,66,0.08); }
-    .feature-card:nth-child(4) { border-color: #F4A8B8; background: rgba(244,168,184,0.08); }
-    .feature-card:nth-child(5) { border-color: #C8A8F0; background: rgba(200,168,240,0.08); }
-    .feature-card:nth-child(6) { border-color: #A8D4F0; background: rgba(168,212,240,0.08); }
+    .feature-card:nth-child(1) { border-color: #9EC4A8; background: rgba(158,196,168,0.08); }
+    .feature-card:nth-child(2) { border-color: #F0B89A; background: rgba(240,184,154,0.08); }
+    .feature-card:nth-child(3) { border-color: #C8943A; background: rgba(200,148,58,0.07); }
+    .feature-card:nth-child(4) { border-color: #D4EBD9; background: rgba(212,235,217,0.2); }
+    .feature-card:nth-child(5) { border-color: #F0B89A; background: rgba(240,184,154,0.07); }
+    .feature-card:nth-child(6) { border-color: #9EC4A8; background: rgba(158,196,168,0.07); }
     .feature-icon-wrap {
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      background: var(--navy);
+      background: var(--green);
       margin: 0 auto 1.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .feature-icon-wrap svg { width: 32px; height: 32px; }
-    /* はさみマーク装飾 */
     .feature-deco {
       font-size: .68rem;
       letter-spacing: .2em;
-      color: var(--blue-d);
+      color: var(--peach);
       margin-bottom: .6rem;
       display: flex;
       align-items: center;
@@ -430,7 +448,7 @@
       display: block;
       width: 14px;
       height: 1px;
-      background: var(--blue-m);
+      background: var(--peach-l);
     }
     .feature-card h3 {
       font-size: .95rem;
@@ -458,10 +476,11 @@
       position: relative;
     }
     .flow-card.highlighted {
-      background: var(--yellow);
+      background: var(--green);
+      color: white;
     }
     .flow-card.highlighted h3,
-    .flow-card.highlighted p { color: var(--navy); }
+    .flow-card.highlighted p { color: white; }
     .flow-icon-svg {
       width: 52px;
       height: 52px;
@@ -479,8 +498,8 @@
     .menu-section { background: white; }
     .menu-blocks { display: flex; flex-direction: column; gap: 1.6rem; max-width: 720px; margin: 0 auto; }
     .menu-block {
-      background: rgba(184,228,240,0.15);
-      border: 1.5px solid var(--blue);
+      background: rgba(212,235,217,0.2);
+      border: 1.5px solid var(--green-ll);
       border-radius: 16px;
       padding: 2rem 2.2rem;
       display: grid;
@@ -501,8 +520,8 @@
       padding: .3rem .9rem;
       border-radius: 50px;
     }
-    .menu-block:nth-child(2) { background: rgba(245,200,66,0.1); border-color: var(--yellow); }
-    .menu-block:nth-child(2) .menu-block-badge { background: var(--yellow); color: var(--navy); }
+    .menu-block:nth-child(2) { background: rgba(240,184,154,0.12); border-color: var(--peach-l); }
+    .menu-block:nth-child(2) .menu-block-badge { background: var(--peach); color: white; }
     .menu-block h3 {
       font-family: 'Noto Serif JP', serif;
       font-size: 1.05rem;
@@ -523,7 +542,7 @@
     .menu-list li:last-child { border-bottom: none; }
     .menu-price {
       font-family: 'Noto Serif JP', serif;
-      color: var(--blue-d);
+      color: var(--peach);
       font-weight: 600;
       white-space: nowrap;
       font-size: .95rem;
@@ -545,10 +564,10 @@
     .area-box {
       max-width: 780px;
       margin: 0 auto;
-      border: 2px solid var(--blue);
+      border: 2px solid var(--green-ll);
       border-radius: 16px;
       padding: 2rem 2.5rem;
-      background: rgba(184,228,240,0.08);
+      background: rgba(212,235,217,0.15);
       text-align: center;
     }
     .area-box-title {
@@ -565,7 +584,7 @@
       margin-bottom: 1.2rem;
     }
     .area-tag {
-      border: 1.5px solid var(--blue-m);
+      border: 1.5px solid var(--green-l);
       border-radius: 6px;
       padding: .4rem 1rem;
       font-size: .85rem;
@@ -636,7 +655,7 @@
       width: 100%;
       max-width: 340px;
       margin: 0 auto;
-      background: var(--blue-d);
+      background: var(--green);
       color: white;
       border: none;
       border-radius: 50px;
@@ -649,7 +668,7 @@
       box-shadow: 0 4px 16px rgba(74,168,200,0.3);
       transition: background .2s, transform .15s;
     }
-    .form-submit:hover { background: var(--blue-m); transform: translateY(-2px); }
+    .form-submit:hover { background: var(--green-l); transform: translateY(-2px); }
 
     /* ── フッター ── */
     footer {
@@ -709,21 +728,21 @@
   <a class="nav-logo" href="#">
     <!-- ひとの輪 ロゴアイコン：輪の中に3人 -->
     <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="18" fill="#B8E4F0"/>
-      <circle cx="20" cy="20" r="14" fill="none" stroke="#1B3A5C" stroke-width="1.2" stroke-dasharray="2 3"/>
+      <circle cx="20" cy="20" r="18" fill="#D4EBD9"/>
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#6B9E7A" stroke-width="1.2" stroke-dasharray="2 3"/>
       <!-- 人1（上） -->
-      <circle cx="20" cy="9" r="3" fill="#1B3A5C"/>
-      <path d="M16 13.5 Q20 12 24 13.5 L24 17 Q20 18 16 17Z" fill="#1B3A5C"/>
+      <circle cx="20" cy="9" r="3" fill="#2D3820"/>
+      <path d="M16 13.5 Q20 12 24 13.5 L24 17 Q20 18 16 17Z" fill="#2D3820"/>
       <!-- 人2（左下） -->
-      <circle cx="11" cy="25" r="2.5" fill="#4AA8C8"/>
-      <path d="M8 29 Q11 27.5 14 29 L14 32 Q11 33 8 32Z" fill="#4AA8C8"/>
+      <circle cx="11" cy="25" r="2.5" fill="#6B9E7A"/>
+      <path d="M8 29 Q11 27.5 14 29 L14 32 Q11 33 8 32Z" fill="#6B9E7A"/>
       <!-- 人3（右下） -->
-      <circle cx="29" cy="25" r="2.5" fill="#F5C842"/>
-      <path d="M26 29 Q29 27.5 32 29 L32 32 Q29 33 26 32Z" fill="#F5C842"/>
+      <circle cx="29" cy="25" r="2.5" fill="#D97A5A"/>
+      <path d="M26 29 Q29 27.5 32 29 L32 32 Q29 33 26 32Z" fill="#D97A5A"/>
       <!-- 繋がりの輪 -->
-      <path d="M20 12 Q14 18 12 25" stroke="#1B3A5C" stroke-width=".8" fill="none" opacity=".4"/>
-      <path d="M20 12 Q26 18 28 25" stroke="#1B3A5C" stroke-width=".8" fill="none" opacity=".4"/>
-      <path d="M13.5 28 Q20 32 26.5 28" stroke="#4AA8C8" stroke-width=".8" fill="none" opacity=".5"/>
+      <path d="M20 12 Q14 18 12 25" stroke="#6B9E7A" stroke-width=".8" fill="none" opacity=".5"/>
+      <path d="M20 12 Q26 18 28 25" stroke="#6B9E7A" stroke-width=".8" fill="none" opacity=".5"/>
+      <path d="M13.5 28 Q20 32 26.5 28" stroke="#D97A5A" stroke-width=".8" fill="none" opacity=".5"/>
     </svg>
     <span class="nav-logo-text">
       訪問理美容 ひとの輪
@@ -744,11 +763,13 @@
 <div class="hero bg-pattern">
   <div class="hero-blob">
     <svg viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <!-- 大きな水色ブロブ -->
-      <path d="M-80 0 C200 0 380 40 500 120 C700 240 680 440 540 520 C400 600 180 580 80 540 C-60 490 -100 380 -80 260 Z" fill="#B8E4F0" opacity=".7"/>
-      <path d="M240 80 C400 20 620 60 740 180 C860 300 840 480 720 560 C600 640 400 620 300 560 C160 480 120 340 160 200 C180 130 200 110 240 80Z" fill="#C5EDF8" opacity=".5"/>
-      <!-- 右側の薄いブロブ -->
-      <path d="M900 100 C1100 60 1360 100 1440 200 L1440 700 L900 700 C800 600 780 440 840 300 C870 220 870 140 900 100Z" fill="#E8F7FD" opacity=".6"/>
+      <!-- 暖かみのあるsage greenブロブ -->
+      <path d="M-80 0 C200 0 380 40 500 120 C700 240 680 440 540 520 C400 600 180 580 80 540 C-60 490 -100 380 -80 260 Z" fill="#D4EBD9" opacity=".8"/>
+      <path d="M240 80 C400 20 620 60 740 180 C860 300 840 480 720 560 C600 640 400 620 300 560 C160 480 120 340 160 200 C180 130 200 110 240 80Z" fill="#E0F0E4" opacity=".6"/>
+      <!-- 右側：クリーム〜ピーチ -->
+      <path d="M900 100 C1100 60 1360 100 1440 200 L1440 700 L900 700 C800 600 780 440 840 300 C870 220 870 140 900 100Z" fill="#FAE8DE" opacity=".5"/>
+      <!-- 小さなアクセントブロブ -->
+      <path d="M1100 0 C1260 20 1440 60 1440 0Z" fill="#F0B89A" opacity=".3"/>
     </svg>
   </div>
   <div class="hero-inner">
