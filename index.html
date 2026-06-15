@@ -773,8 +773,8 @@
     <div class="hero-copy">
       <span class="hero-catch-small">茨城県水戸市・周辺エリア対応</span>
       <h1>
-        「いつまでも<span>健康で美しく</span>」<br>
-        あなたのそばへ、<br>
+        みなさまへ、<span>心地よい散髪を。</span><br>
+        あなたのもとに、<br>
         ひとの輪が伺います。
       </h1>
       <p class="hero-tagline">介護の知識を持つ</p>
@@ -1428,12 +1428,12 @@
       <div>
         <h3>理美容メニュー</h3>
         <ul class="menu-list">
-          <li><span>カット（男性）シャンプー・ブロー込み</span><span class="menu-price">¥3,500〜</span></li>
-          <li><span>カット（女性）シャンプー・ブロー込み</span><span class="menu-price">¥4,000〜</span></li>
-          <li><span>カット＋白髪染め（ショート〜ミディアム）</span><span class="menu-price">¥7,000〜</span></li>
-          <li><span>シャンプー・セット（カット不要の方）</span><span class="menu-price">¥2,000〜</span></li>
-          <li><span>顔剃り（男性）カットとのセットも可</span><span class="menu-price">¥1,000〜</span></li>
-          <li><span>パーマ・ヘアカラー・ネイル・メイク 等</span><span class="menu-price">要相談</span></li>
+          <li><span>カット</span><span class="menu-price">¥1,000</span></li>
+          <li><span>カラー</span><span class="menu-price">¥2,500</span></li>
+          <li><span>シャンプー</span><span class="menu-price">¥800</span></li>
+          <li><span>顔そり（男女）</span><span class="menu-price">¥800</span></li>
+          <li><span>寝たままカット</span><span class="menu-price">¥1,500</span></li>
+          <li><span>在宅カット</span><span class="menu-price">¥2,000</span></li>
         </ul>
       </div>
       <svg class="menu-block-illus" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1551,29 +1551,19 @@
     <div class="heading-underline"></div>
   </div>
 
-  <div class="area-box" style="margin-bottom:1.4rem">
-    <p class="area-box-title">- 水戸市・周辺 訪問対応エリア -</p>
+  <div class="area-box">
+    <p class="area-box-title">- 訪問対応エリア -</p>
     <div class="area-tags">
-      <span class="area-tag" style="border-color:var(--navy);font-weight:700;background:rgba(27,58,92,0.06)">水戸市</span>
-      <span class="area-tag">ひたちなか市</span>
-      <span class="area-tag">那珂市</span>
+      <span class="area-tag" style="border-color:var(--green);font-weight:700;background:rgba(107,158,122,0.08)">水戸市</span>
       <span class="area-tag">笠間市</span>
-      <span class="area-tag">小美玉市</span>
+      <span class="area-tag">ひたちなか市</span>
       <span class="area-tag">茨城町</span>
       <span class="area-tag">大洗町</span>
-      <span class="area-tag">城里町</span>
+      <span class="area-tag" style="border-color:var(--peach);background:rgba(217,122,90,0.08)">在宅</span>
     </div>
     <p class="area-note">
-      訪問エリア内でも対応できない場合、エリア外でも対応できる場合がございます。<br>
-      お気軽にご相談ください。
-    </p>
-  </div>
-
-  <div class="area-box">
-    <p class="area-box-title">- 訪問対象施設 -</p>
-    <p style="font-size:.88rem;color:var(--muted);line-height:2.1">
-      介護老人保健施設・特別養護老人ホーム・有料老人ホーム・グループホーム・<br>
-      障がい者施設・ホスピス・リハビリ病院・精神病院・透析病院・個人宅（在宅）等
+      上記以外のエリアもご相談ください。<br>
+      遠方の場合は別途出張費をいただく場合があります。
     </p>
   </div>
 </section>
@@ -1685,10 +1675,15 @@
 </footer>
 
 <script>
-  if (window.location.hash) {
-    history.replaceState(null, null, window.location.pathname);
-    window.scrollTo(0, 0);
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
   }
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname);
+    }
+    window.scrollTo(0, 0);
+  });
 </script>
 </body>
 </html>
