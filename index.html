@@ -3,704 +3,727 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>訪問理美容 ひとの輪 | ご自宅・施設への出張散髪・美容</title>
+  <title>訪問理美容 ひとの輪 | 水戸市・茨城県の出張散髪・美容</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:    #FAF6F0;
-      --cream2:   #F2EAE0;
-      --cream3:   #E8DDD0;
-      --teal:     #3D6B63;
-      --teal-l:   #5D8E85;
-      --teal-ll:  #A8C5BF;
-      --rose:     #C4828A;
-      --rose-l:   #E8B4BA;
-      --gold:     #B8935A;
-      --text:     #2A2A24;
-      --muted:    #6A6056;
-      --white:    #FFFFFF;
+      --blue:    #B8E4F0;
+      --blue-m:  #7ECDE8;
+      --blue-d:  #4AA8C8;
+      --navy:    #1B3A5C;
+      --navy-l:  #2A5278;
+      --yellow:  #F5C842;
+      --yellow-d:#D4A820;
+      --white:   #FFFFFF;
+      --gray-bg: #F2F5F8;
+      --text:    #1B3A5C;
+      --muted:   #5A7A96;
+      --required:#E53935;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Noto Sans JP', sans-serif;
-      background: var(--cream);
+      background: var(--white);
       color: var(--text);
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.8;
     }
 
-    /* ── NAV ── */
+    /* ── 背景アイコンパターン ── */
+    .bg-pattern {
+      position: relative;
+      overflow: hidden;
+    }
+    .bg-pattern::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg opacity='.08' fill='none' stroke='%231B3A5C' stroke-width='1.5'%3E%3C!-- ドライヤー --%3E%3Crect x='10' y='8' width='20' height='14' rx='4'/%3E%3Cpath d='M30 15 L44 15 L44 19 L30 19'/%3E%3Ccircle cx='8' cy='22' r='4'/%3E%3C!-- はさみ --%3E%3Cpath d='M70 10 Q72 20 70 30' stroke-linecap='round'/%3E%3Cpath d='M76 10 Q74 20 76 30' stroke-linecap='round'/%3E%3Cellipse cx='67' cy='34' rx='5' ry='7'/%3E%3Cellipse cx='79' cy='34' rx='5' ry='7'/%3E%3C!-- くし --%3E%3Crect x='8' y='55' width='40' height='8' rx='3'/%3E%3Cline x1='14' y1='63' x2='14' y2='74' stroke-linecap='round'/%3E%3Cline x1='20' y1='63' x2='20' y2='77' stroke-linecap='round'/%3E%3Cline x1='26' y1='63' x2='26' y2='74' stroke-linecap='round'/%3E%3Cline x1='32' y1='63' x2='32' y2='77' stroke-linecap='round'/%3E%3Cline x1='38' y1='63' x2='38' y2='74' stroke-linecap='round'/%3E%3C!-- ボトル --%3E%3Crect x='75' y='50' width='12' height='22' rx='3'/%3E%3Crect x='78' y='44' width='6' height='8' rx='2'/%3E%3C!-- 鏡 --%3E%3Cellipse cx='100' cy='20' rx='12' ry='16'/%3E%3Crect x='96' y='36' width='8' height='10' rx='2'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 120px 120px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── ナビ ── */
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(250,246,240,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--cream3);
+      z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(184,228,240,0.4);
       padding: 0 5vw;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      height: 60px;
     }
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: .8rem;
+      gap: .7rem;
       text-decoration: none;
     }
-    .nav-logo-ring {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-    }
+    .nav-logo-icon { width: 38px; height: 38px; flex-shrink: 0; }
     .nav-logo-text {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1rem;
-      color: var(--teal);
-      letter-spacing: .1em;
-      line-height: 1.3;
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--navy);
+      letter-spacing: .06em;
+      line-height: 1.25;
     }
     .nav-logo-text small {
       display: block;
-      font-size: .65rem;
-      color: var(--muted);
-      letter-spacing: .12em;
-      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .62rem;
       font-weight: 300;
+      color: var(--muted);
+      letter-spacing: .14em;
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
     .nav-links a {
       text-decoration: none;
-      font-size: .82rem;
+      font-size: .8rem;
       color: var(--muted);
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       transition: color .2s;
-      position: relative;
     }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--rose);
-      transition: width .25s;
+    .nav-links a:hover { color: var(--navy); }
+    .nav-contact-btn {
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .8rem;
+      font-weight: 700;
+      padding: .5rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: .06em;
+      transition: background .2s;
     }
-    .nav-links a:hover { color: var(--teal); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-contact-btn:hover { background: var(--yellow-d); }
 
-    /* ── HERO ── */
+    /* ── 固定サイドボタン ── */
+    .fixed-contact {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .fixed-btn {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .82rem;
+      font-weight: 700;
+      padding: 1.2rem .7rem;
+      text-decoration: none;
+      letter-spacing: .12em;
+      transition: opacity .2s;
+      border-radius: 8px 0 0 8px;
+      box-shadow: -2px 2px 8px rgba(0,0,0,0.15);
+    }
+    .fixed-btn:hover { opacity: .85; }
+    .fixed-btn.mail-btn {
+      background: var(--blue-d);
+      color: white;
+      margin-top: .4rem;
+    }
+
+    /* ── ヒーロー ── */
     .hero {
-      min-height: 92vh;
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    /* 背景ブロブ */
+    .hero-blob {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-blob svg { width: 100%; height: 100%; }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 4rem 8vw;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 5rem 8vw 4rem;
-      gap: 5rem;
-      position: relative;
-      overflow: hidden;
+      gap: 3rem;
     }
-    .hero-bg-shape {
-      position: absolute;
-      right: -5%;
-      top: -10%;
-      width: 55%;
-      height: 120%;
-      background: radial-gradient(ellipse 80% 90% at 60% 50%, rgba(93,142,133,0.07) 0%, rgba(184,147,90,0.04) 60%, transparent 100%);
-      pointer-events: none;
-    }
-    .hero-bg-circle {
-      position: absolute;
-      right: 3%;
-      bottom: 5%;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      border: 1px solid rgba(196,130,138,0.12);
-      pointer-events: none;
-    }
-    .hero-bg-circle2 {
-      position: absolute;
-      right: 7%;
-      bottom: 9%;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 1px solid rgba(93,142,133,0.1);
-      pointer-events: none;
-    }
-
-    .hero-copy { max-width: 480px; position: relative; z-index: 1; }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: .7rem;
-      font-size: .75rem;
-      letter-spacing: .2em;
-      color: var(--rose);
-      margin-bottom: 1.8rem;
-    }
-    .hero-tag-line {
-      width: 32px;
-      height: 1px;
-      background: var(--rose);
-    }
-
-    h1 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      line-height: 1.45;
-      color: var(--teal);
+    .hero-copy {}
+    .hero-catch-small {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      padding: .3rem .9rem;
+      border-radius: 50px;
       margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      color: var(--navy);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
       font-weight: 600;
     }
-    h1 em {
-      font-style: normal;
-      color: var(--rose);
-    }
-
-    .hero-lead {
-      color: var(--muted);
-      font-size: .95rem;
-      margin-bottom: .6rem;
-      line-height: 2.1;
-      font-weight: 300;
-    }
-    .hero-catch {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1.05rem;
-      color: var(--text);
-      margin-bottom: 2.4rem;
-      padding-left: 1rem;
-      border-left: 3px solid var(--rose-l);
-      line-height: 1.9;
-    }
-
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      background: var(--teal);
-      color: #fff;
-      padding: .9rem 2.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: .88rem;
-      letter-spacing: .08em;
-      transition: background .25s, transform .15s, box-shadow .25s;
-      box-shadow: 0 4px 16px rgba(61,107,99,0.25);
-    }
-    .btn-primary:hover {
-      background: var(--teal-l);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(61,107,99,0.3);
-    }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      background: transparent;
-      color: var(--teal);
-      padding: .9rem 2.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: .88rem;
-      letter-spacing: .08em;
-      border: 1.5px solid var(--teal-ll);
-      transition: border-color .25s, color .25s, transform .15s;
-    }
-    .btn-secondary:hover {
-      border-color: var(--teal);
-      transform: translateY(-2px);
-    }
-
-    /* ── HERO ART ── */
-    .hero-art {
+    .hero h1 span { color: var(--blue-d); }
+    .hero-tagline {
+      font-size: .82rem;
+      color: var(--navy);
+      letter-spacing: .1em;
+      margin-bottom: .3rem;
       position: relative;
-      z-index: 1;
+      display: inline-block;
+    }
+    .hero-tagline::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--blue-m);
+      border-top: 1px dashed var(--blue-m);
+    }
+    .hero-desc {
+      font-size: .92rem;
+      color: var(--navy-l);
+      line-height: 2.1;
+      margin: 1.4rem 0 2rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-yellow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--yellow);
+      color: var(--navy);
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      box-shadow: 0 4px 14px rgba(245,200,66,0.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-yellow:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,200,66,0.5); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: var(--navy);
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      border: 2px solid var(--navy);
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--navy); color: white; }
+
+    .hero-art {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .hero-art-wrap {
+    .hero-art svg { width: min(380px,100%); height: auto; }
+
+    /* ── はさみ区切り ── */
+    .scissors-divider {
+      text-align: center;
+      padding: 1.5rem 0;
       position: relative;
-      width: min(440px, 100%);
     }
-    .hero-main-svg {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 20px 40px rgba(61,107,99,0.12));
+    .scissors-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      right: 10%;
+      border-top: 2px dashed rgba(184,228,240,0.8);
+    }
+    .scissors-icon {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      background: white;
+      padding: 0 .8rem;
+      color: var(--blue-d);
+      font-size: 1.2rem;
     }
 
-    /* ── SECTION BASE ── */
-    section { padding: 6rem 8vw; }
-    .section-header { margin-bottom: 3.5rem; }
-    .section-label {
-      font-size: .72rem;
+    /* ── セクション共通 ── */
+    section { padding: 5rem 8vw; }
+    .section-watermark {
+      text-align: center;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 700;
+      color: rgba(27,58,92,0.06);
+      letter-spacing: .1em;
+      line-height: 1;
+      margin-bottom: -1.5rem;
+      user-select: none;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+    .section-label-small {
+      font-size: .7rem;
       letter-spacing: .25em;
-      color: var(--rose);
-      text-transform: uppercase;
-      margin-bottom: .5rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      margin-bottom: .6rem;
+    }
+    .section-label-small::before,
+    .section-label-small::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--blue-m);
     }
     h2 {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      color: var(--teal);
-      line-height: 1.5;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--navy);
       margin-bottom: .6rem;
+      font-weight: 600;
     }
-    .section-divider {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--rose), var(--rose-l));
-      margin-top: 1rem;
+    .heading-underline {
+      width: 40px;
+      height: 3px;
+      background: var(--blue-d);
       border-radius: 2px;
-    }
-    .section-lead {
-      font-size: .92rem;
-      color: var(--muted);
-      line-height: 2;
-      margin-top: 1.2rem;
-      max-width: 560px;
+      margin: .6rem auto 0;
     }
 
-    /* ── CONCEPT ── */
-    .concept-section {
-      background: linear-gradient(135deg, var(--teal) 0%, #2A5048 100%);
-      color: #fff;
-      padding: 6rem 8vw;
-      position: relative;
-      overflow: hidden;
-    }
-    .concept-bg-ring {
+    /* ── ABOUT ── */
+    .about-section { background: white; }
+    .about-inner { max-width: 760px; margin: 0 auto; text-align: center; position: relative; }
+    .quote-mark {
+      font-family: serif;
+      font-size: 8rem;
+      color: rgba(184,228,240,0.35);
+      line-height: .7;
       position: absolute;
-      right: -80px;
-      top: -80px;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.06);
+      top: -1rem;
+      left: -2rem;
+      user-select: none;
     }
-    .concept-bg-ring2 {
-      position: absolute;
-      right: 40px;
-      top: 40px;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.04);
+    .quote-mark.right {
+      right: -2rem;
+      left: auto;
+      bottom: -1rem;
+      top: auto;
     }
-    .concept-bg-ring3 {
-      position: absolute;
-      left: -60px;
-      bottom: -60px;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.05);
+    .about-text {
+      font-size: .95rem;
+      color: var(--text);
+      line-height: 2.3;
+      margin-bottom: 1.2rem;
     }
-    .concept-inner {
-      max-width: 680px;
-      position: relative;
-      z-index: 1;
-    }
-    .concept-section .section-label { color: var(--rose-l); }
-    .concept-section h2 { color: #fff; }
-    .concept-section .section-divider { background: linear-gradient(90deg, var(--rose-l), transparent); }
-    .concept-body {
-      margin-top: 2rem;
-      font-size: 1rem;
-      line-height: 2.2;
-      color: rgba(255,255,255,0.85);
-      font-weight: 300;
-    }
-    .concept-body strong {
-      color: #fff;
+    .about-highlight {
+      display: inline-block;
+      background: linear-gradient(transparent 60%, rgba(184,228,240,0.5) 60%);
       font-weight: 500;
     }
-    .concept-quote {
-      margin-top: 2.5rem;
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1.15rem;
-      color: var(--rose-l);
-      padding: 1.5rem 2rem;
-      border-left: 3px solid var(--rose);
-      background: rgba(255,255,255,0.05);
-      border-radius: 0 8px 8px 0;
-      line-height: 1.9;
-    }
 
-    /* ── FEATURES ── */
-    .bg-cream2 { background: var(--cream2); }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.6rem;
-    }
-    .feature-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2.2rem 2rem;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-      transition: transform .25s, box-shadow .25s;
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--teal), var(--teal-l));
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
-    .feature-illus {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 1.4rem;
-    }
-    .feature-card h3 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1rem;
-      color: var(--teal);
-      margin-bottom: .7rem;
-      letter-spacing: .05em;
-    }
-    .feature-card p {
-      font-size: .87rem;
-      color: var(--muted);
-      line-height: 1.95;
-    }
-
-    /* ── FLOW ── */
-    .flow-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0;
-      position: relative;
-    }
-    .flow-steps::before {
-      content: '';
-      position: absolute;
-      top: 44px;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, var(--cream3), var(--rose-l), var(--cream3));
-    }
-    .flow-step {
-      text-align: center;
-      padding: 0 1rem 2rem;
-      position: relative;
-    }
-    .flow-num {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 1.4rem;
-      position: relative;
-      z-index: 1;
-    }
-    .flow-num svg { width: 100%; height: 100%; }
-    .flow-step h3 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: .95rem;
-      color: var(--teal);
-      margin-bottom: .5rem;
-    }
-    .flow-step p { font-size: .83rem; color: var(--muted); line-height: 1.9; }
-
-    /* ── MENU ── */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    .menu-card {
-      background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-    }
-    .menu-card-head {
-      background: var(--teal);
-      color: #fff;
-      padding: 1.2rem 1.8rem;
+    /* ── 連絡先バナー ── */
+    .contact-banner {
+      background: var(--navy);
+      color: white;
+      padding: 2.5rem 8vw;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      justify-content: center;
+      gap: 5rem;
+      flex-wrap: wrap;
     }
-    .menu-card-head-illus { width: 40px; height: 40px; flex-shrink: 0; }
-    .menu-card-head h3 {
+    .contact-banner-item { text-align: center; }
+    .contact-banner-label {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      opacity: .6;
+      margin-bottom: .4rem;
+    }
+    .contact-banner-val {
       font-family: 'Noto Serif JP', serif;
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 1.6rem;
       letter-spacing: .08em;
+      font-weight: 400;
     }
-    .menu-rows { padding: .5rem 0; }
-    .menu-row {
+    .contact-banner-val a { color: white; text-decoration: none; }
+    .contact-banner-sub { font-size: .75rem; opacity: .65; margin-top: .2rem; }
+
+    /* ── FEATURE ── */
+    .feature-section { background: white; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .feature-card {
+      border: 2px solid;
+      border-radius: 16px;
+      padding: 2rem 1.6rem;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .feature-card:nth-child(1) { border-color: #B8E4F0; background: rgba(184,228,240,0.08); }
+    .feature-card:nth-child(2) { border-color: #A8E6C8; background: rgba(168,230,200,0.08); }
+    .feature-card:nth-child(3) { border-color: #F5C842; background: rgba(245,200,66,0.08); }
+    .feature-card:nth-child(4) { border-color: #F4A8B8; background: rgba(244,168,184,0.08); }
+    .feature-card:nth-child(5) { border-color: #C8A8F0; background: rgba(200,168,240,0.08); }
+    .feature-card:nth-child(6) { border-color: #A8D4F0; background: rgba(168,212,240,0.08); }
+    .feature-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--navy);
+      margin: 0 auto 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-icon-wrap svg { width: 32px; height: 32px; }
+    /* はさみマーク装飾 */
+    .feature-deco {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      color: var(--blue-d);
+      margin-bottom: .6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .3rem;
+    }
+    .feature-deco::before, .feature-deco::after {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 1px;
+      background: var(--blue-m);
+    }
+    .feature-card h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+      letter-spacing: .05em;
+    }
+    .feature-card p { font-size: .82rem; color: var(--muted); line-height: 1.9; }
+
+    /* ── FLOW ── */
+    .flow-section { background: var(--gray-bg); }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      position: relative;
+    }
+    .flow-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .flow-card.highlighted {
+      background: var(--yellow);
+    }
+    .flow-card.highlighted h3,
+    .flow-card.highlighted p { color: var(--navy); }
+    .flow-icon-svg {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 1rem;
+    }
+    .flow-card h3 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .flow-card p { font-size: .78rem; color: var(--muted); line-height: 1.85; }
+
+    /* ── MENU ── */
+    .menu-section { background: white; }
+    .menu-blocks { display: flex; flex-direction: column; gap: 1.6rem; max-width: 720px; margin: 0 auto; }
+    .menu-block {
+      background: rgba(184,228,240,0.15);
+      border: 1.5px solid var(--blue);
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 1.5rem;
+      position: relative;
+    }
+    .menu-block-badge {
+      position: absolute;
+      top: -14px;
+      left: 2rem;
+      background: var(--navy);
+      color: white;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      padding: .3rem .9rem;
+      border-radius: 50px;
+    }
+    .menu-block:nth-child(2) { background: rgba(245,200,66,0.1); border-color: var(--yellow); }
+    .menu-block:nth-child(2) .menu-block-badge { background: var(--yellow); color: var(--navy); }
+    .menu-block h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: .8rem;
+    }
+    .menu-list { list-style: none; }
+    .menu-list li {
+      font-size: .85rem;
+      color: var(--text);
+      padding: .4rem 0;
+      border-bottom: 1px dashed rgba(184,228,240,0.6);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: .85rem 1.8rem;
-      border-bottom: 1px solid var(--cream2);
-      transition: background .15s;
+      gap: 1rem;
     }
-    .menu-row:last-child { border-bottom: none; }
-    .menu-row:hover { background: var(--cream); }
-    .menu-row-name { font-size: .9rem; color: var(--text); }
-    .menu-row-detail { font-size: .78rem; color: var(--muted); margin-top: .15rem; }
-    .menu-row-price {
+    .menu-list li:last-child { border-bottom: none; }
+    .menu-price {
       font-family: 'Noto Serif JP', serif;
-      font-size: 1rem;
-      color: var(--rose);
-      white-space: nowrap;
+      color: var(--blue-d);
       font-weight: 600;
+      white-space: nowrap;
+      font-size: .95rem;
     }
+    .menu-block-illus { width: 100px; flex-shrink: 0; }
     .menu-note {
-      margin-top: 1.6rem;
-      padding: 1.4rem 1.8rem;
-      background: var(--cream2);
-      border-radius: 8px;
-      font-size: .83rem;
+      max-width: 720px;
+      margin: 1.4rem auto 0;
+      font-size: .8rem;
       color: var(--muted);
       line-height: 2;
-    }
-    .menu-note strong { color: var(--teal); }
-
-    /* ── PROFILE ── */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .profile-illus-wrap {
-      position: relative;
-    }
-    .profile-illus-bg {
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--cream3) 0%, transparent 70%);
-    }
-    .profile-illus {
-      width: 100%;
-      max-width: 360px;
-      margin: 0 auto;
-      display: block;
-      position: relative;
-    }
-    .profile-name {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1.5rem;
-      color: var(--teal);
-      margin-bottom: .3rem;
-      letter-spacing: .05em;
-    }
-    .profile-role {
-      font-size: .8rem;
-      color: var(--rose);
-      letter-spacing: .15em;
-      margin-bottom: 1.4rem;
-    }
-    .profile-text {
-      font-size: .92rem;
-      color: var(--text);
-      line-height: 2.1;
-      margin-bottom: 1.6rem;
-    }
-    .profile-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-    }
-    .tag {
-      background: var(--cream2);
-      border: 1px solid var(--teal-ll);
-      color: var(--teal);
-      font-size: .76rem;
-      padding: .3rem .9rem;
-      border-radius: 20px;
-      letter-spacing: .05em;
+      padding: 1.2rem 1.6rem;
+      background: var(--gray-bg);
+      border-radius: 8px;
     }
 
     /* ── AREA ── */
-    .area-section { background: var(--cream2); }
-    .area-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .area-map-illus { width: 100%; max-width: 340px; }
-    .area-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
-    }
-    .area-card {
-      background: var(--white);
-      border-radius: 8px;
-      padding: .9rem 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-      transition: transform .2s;
-    }
-    .area-card:hover { transform: translateX(4px); }
-    .area-pip {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--teal-ll);
-      flex-shrink: 0;
-      box-shadow: 0 0 0 3px rgba(93,142,133,0.15);
-    }
-    .area-card span { font-size: .88rem; color: var(--text); }
-    .area-note { margin-top: 1.2rem; font-size: .82rem; color: var(--muted); line-height: 1.9; }
-
-    /* ── CONTACT ── */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .contact-illus { width: 100%; max-width: 360px; margin: 0 auto; display: block; }
-    .contact-box {
-      background: linear-gradient(135deg, var(--teal) 0%, #2A5048 100%);
+    .area-section { background: white; }
+    .area-box {
+      max-width: 780px;
+      margin: 0 auto;
+      border: 2px solid var(--blue);
       border-radius: 16px;
-      padding: 3rem 3rem;
-      color: #fff;
+      padding: 2rem 2.5rem;
+      background: rgba(184,228,240,0.08);
+      text-align: center;
     }
-    .contact-box .section-label { color: var(--rose-l); }
-    .contact-box h2 { color: #fff; font-size: 1.6rem; margin-bottom: 1rem; }
-    .contact-box .section-divider { background: linear-gradient(90deg, var(--rose-l), transparent); }
-    .contact-sub { font-size: .88rem; opacity: .82; line-height: 2; margin: 1.4rem 0 2rem; }
-    .phone-block {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 1.4rem 1.8rem;
-      margin-bottom: 1.2rem;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .phone-label { font-size: .72rem; letter-spacing: .18em; opacity: .7; margin-bottom: .4rem; }
-    .phone-number {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 2rem;
-      letter-spacing: .08em;
-      line-height: 1;
-    }
-    .phone-hours { font-size: .78rem; opacity: .65; margin-top: .4rem; }
-    .contact-list {
-      list-style: none;
+    .area-box-title {
       font-size: .82rem;
-      opacity: .78;
-      line-height: 1;
+      color: var(--muted);
+      letter-spacing: .15em;
+      margin-bottom: 1.2rem;
     }
-    .contact-list li {
-      padding: .4rem 0;
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .area-tag {
+      border: 1.5px solid var(--blue-m);
+      border-radius: 6px;
+      padding: .4rem 1rem;
+      font-size: .85rem;
+      color: var(--navy);
+      background: white;
+    }
+    .area-note { font-size: .8rem; color: var(--muted); line-height: 1.9; }
+
+    /* ── お問い合わせフォーム ── */
+    .contact-section { background: var(--gray-bg); }
+    .contact-form-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .form-row {
       display: flex;
       align-items: flex-start;
-      gap: .6rem;
-    }
-    .contact-list li::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--rose-l);
-      margin-top: .6rem;
-      flex-shrink: 0;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--text);
-      color: rgba(255,255,255,0.5);
-      padding: 3rem 8vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .form-label {
+      width: 140px;
+      flex-shrink: 0;
+      font-size: .85rem;
+      color: var(--navy);
+      font-weight: 500;
+      padding-top: .7rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .required-badge {
+      background: var(--required);
+      color: white;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: .15rem .4rem;
+      border-radius: 3px;
+      letter-spacing: .05em;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      flex: 1;
+      border: 1.5px solid #C8D8E4;
+      border-radius: 6px;
+      padding: .65rem .9rem;
+      font-size: .88rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: white;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--blue-d); }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .form-privacy {
+      font-size: .78rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.9;
+      margin: 1.8rem 0 1.4rem;
+    }
+    .form-submit {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      background: var(--blue-d);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-size: .95rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: .1em;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(74,168,200,0.3);
+      transition: background .2s, transform .15s;
+    }
+    .form-submit:hover { background: var(--blue-m); transform: translateY(-2px); }
+
+    /* ── フッター ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      padding: 2.5rem 8vw;
+      text-align: center;
     }
     .footer-logo {
       display: flex;
       align-items: center;
-      gap: .8rem;
+      justify-content: center;
+      gap: .7rem;
+      margin-bottom: .8rem;
     }
-    .footer-logo-text {
-      font-family: 'Noto Serif JP', serif;
+    .footer-logo span {
       font-size: 1rem;
-      color: rgba(255,255,255,0.85);
-      letter-spacing: .1em;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: .08em;
     }
-    footer p { font-size: .78rem; text-align: center; }
-    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer p { font-size: .78rem; }
+    footer a { color: rgba(255,255,255,0.55); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; gap: 3rem; padding: 4rem 6vw 3rem; }
-      .hero-art { order: -1; }
-      .hero-art-wrap { max-width: 300px; margin: 0 auto; }
-      .menu-grid { grid-template-columns: 1fr; }
-      .profile-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .profile-illus-wrap { max-width: 260px; margin: 0 auto; }
-      .area-layout { grid-template-columns: 1fr; }
-      .contact-layout { grid-template-columns: 1fr; }
-      .flow-steps::before { display: none; }
+    @media (max-width: 960px) {
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .flow-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       nav { padding: 0 4vw; }
-      .nav-links { display: none; }
-      section { padding: 4rem 5vw; }
-      .concept-section { padding: 4rem 5vw; }
-      .contact-box { padding: 2rem 1.6rem; }
-      footer { padding: 2rem 5vw; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; animation: none !important; }
+      .nav-links, .nav-contact-btn { display: none; }
+      .hero-inner { grid-template-columns: 1fr; padding: 3rem 5vw; min-height: auto; gap: 2rem; }
+      .hero-art { order: -1; }
+      section { padding: 3.5rem 5vw; }
+      .contact-banner { gap: 2rem; }
+      .fixed-contact { display: none; }
+      .menu-block { grid-template-columns: 1fr; }
+      .menu-block-illus { display: none; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .flow-grid { grid-template-columns: 1fr; }
+      .form-row { flex-direction: column; gap: .4rem; }
+      .form-label { width: auto; padding-top: 0; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- 固定サイドボタン -->
+<div class="fixed-contact">
+  <a class="fixed-btn" href="#contact">お問い合わせ</a>
+  <a class="fixed-btn mail-btn" href="mailto:your@email.com">メール</a>
+</div>
+
+<!-- ナビ -->
 <nav>
   <a class="nav-logo" href="#">
-    <svg class="nav-logo-ring" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="17" stroke="#3D6B63" stroke-width="1.5"/>
-      <!-- 人型×3、輪になって -->
-      <g transform="translate(20,20)">
-        <!-- 上 -->
-        <circle cx="0" cy="-10" r="2.5" fill="#3D6B63" opacity=".9"/>
-        <path d="M-3 -6 Q0 -4 3 -6 L3 -1 Q0 0 -3 -1 Z" fill="#3D6B63" opacity=".7"/>
-        <!-- 左下 -->
-        <circle cx="-8.7" cy="5" r="2.5" fill="#C4828A" opacity=".9"/>
-        <path d="M-11.7 9 Q-8.7 11 -5.7 9 L-5.7 14 Q-8.7 15 -11.7 14 Z" fill="#C4828A" opacity=".7"/>
-        <!-- 右下 -->
-        <circle cx="8.7" cy="5" r="2.5" fill="#B8935A" opacity=".9"/>
-        <path d="M5.7 9 Q8.7 11 11.7 9 L11.7 14 Q8.7 15 5.7 14 Z" fill="#B8935A" opacity=".7"/>
-        <!-- 繋ぎ線 -->
-        <path d="M0 -7.5 Q-5 0 -6.5 6.5" stroke="#3D6B63" stroke-width=".8" fill="none" opacity=".4"/>
-        <path d="M0 -7.5 Q5 0 6.5 6.5" stroke="#B8935A" stroke-width=".8" fill="none" opacity=".4"/>
-        <path d="M-6.5 8.5 Q0 12 6.5 8.5" stroke="#C4828A" stroke-width=".8" fill="none" opacity=".4"/>
-      </g>
+    <!-- ひとの輪 ロゴアイコン：輪の中に3人 -->
+    <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="18" fill="#B8E4F0"/>
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1B3A5C" stroke-width="1.2" stroke-dasharray="2 3"/>
+      <!-- 人1（上） -->
+      <circle cx="20" cy="9" r="3" fill="#1B3A5C"/>
+      <path d="M16 13.5 Q20 12 24 13.5 L24 17 Q20 18 16 17Z" fill="#1B3A5C"/>
+      <!-- 人2（左下） -->
+      <circle cx="11" cy="25" r="2.5" fill="#4AA8C8"/>
+      <path d="M8 29 Q11 27.5 14 29 L14 32 Q11 33 8 32Z" fill="#4AA8C8"/>
+      <!-- 人3（右下） -->
+      <circle cx="29" cy="25" r="2.5" fill="#F5C842"/>
+      <path d="M26 29 Q29 27.5 32 29 L32 32 Q29 33 26 32Z" fill="#F5C842"/>
+      <!-- 繋がりの輪 -->
+      <path d="M20 12 Q14 18 12 25" stroke="#1B3A5C" stroke-width=".8" fill="none" opacity=".4"/>
+      <path d="M20 12 Q26 18 28 25" stroke="#1B3A5C" stroke-width=".8" fill="none" opacity=".4"/>
+      <path d="M13.5 28 Q20 32 26.5 28" stroke="#4AA8C8" stroke-width=".8" fill="none" opacity=".5"/>
     </svg>
     <span class="nav-logo-text">
       訪問理美容 ひとの輪
@@ -708,753 +731,651 @@
     </span>
   </a>
   <ul class="nav-links">
-    <li><a href="#features">サービス</a></li>
-    <li><a href="#flow">ご利用の流れ</a></li>
+    <li><a href="#about">ひとの輪について</a></li>
+    <li><a href="#feature">特徴</a></li>
     <li><a href="#menu">料金</a></li>
-    <li><a href="#profile">施術者</a></li>
-    <li><a href="#area">対応地域</a></li>
+    <li><a href="#area">対応エリア</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
+  <a class="nav-contact-btn" href="#contact">お問い合わせ</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-shape"></div>
-  <div class="hero-bg-circle"></div>
-  <div class="hero-bg-circle2"></div>
-
-  <div class="hero-copy">
-    <div class="hero-tag">
-      <span class="hero-tag-line"></span>
-      茨城県水戸市・周辺エリア対応
-    </div>
-    <h1>あなたのそばで、<br><em>つながる</em>美しさを。</h1>
-    <p class="hero-catch">
-      住み慣れた場所で、いつものように。<br>
-      ひとの輪は、髪を通じて<br>笑顔と絆をつなぎます。
-    </p>
-    <p class="hero-lead">
-      ご自宅・介護施設・グループホームへ、<br>
-      国家資格を持つ理美容師がお伺いします。<br>
-      心と髪を、丁寧に整えます。
-    </p>
-    <div class="btn-group">
-      <a class="btn-primary" href="#contact">まずはご相談ください</a>
-      <a class="btn-secondary" href="#menu">料金を見る</a>
-    </div>
+<!-- ヒーロー -->
+<div class="hero bg-pattern">
+  <div class="hero-blob">
+    <svg viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- 大きな水色ブロブ -->
+      <path d="M-80 0 C200 0 380 40 500 120 C700 240 680 440 540 520 C400 600 180 580 80 540 C-60 490 -100 380 -80 260 Z" fill="#B8E4F0" opacity=".7"/>
+      <path d="M240 80 C400 20 620 60 740 180 C860 300 840 480 720 560 C600 640 400 620 300 560 C160 480 120 340 160 200 C180 130 200 110 240 80Z" fill="#C5EDF8" opacity=".5"/>
+      <!-- 右側の薄いブロブ -->
+      <path d="M900 100 C1100 60 1360 100 1440 200 L1440 700 L900 700 C800 600 780 440 840 300 C870 220 870 140 900 100Z" fill="#E8F7FD" opacity=".6"/>
+    </svg>
   </div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-catch-small">茨城県水戸市・周辺エリア対応</span>
+      <h1>
+        「いつまでも<span>健康で美しく</span>」<br>
+        あなたのそばへ、<br>
+        ひとの輪が伺います。
+      </h1>
+      <p class="hero-tagline">介護の知識を持つ</p>
+      <p class="hero-tagline">経験豊富な理美容師が</p>
+      <p class="hero-tagline">訪問・出張して</p>
+      <p class="hero-tagline">サービスを提供いたします。</p>
+      <div class="hero-btns" style="margin-top:2rem">
+        <a class="btn-yellow" href="#contact">お問い合わせはこちら</a>
+        <a class="btn-outline" href="#menu">料金を見る</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <!-- ヒーローイラスト：訪問理美容のシーン -->
+      <svg viewBox="0 0 380 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 背景の輪モチーフ -->
+        <circle cx="190" cy="210" r="175" fill="rgba(255,255,255,0.6)" stroke="#B8E4F0" stroke-width="2"/>
+        <circle cx="190" cy="210" r="150" fill="rgba(255,255,255,0.4)" stroke="#C5EDF8" stroke-width="1" stroke-dasharray="4 6"/>
 
-  <div class="hero-art">
-    <div class="hero-art-wrap">
-      <!-- メインビジュアル：輪のつながりをモチーフとした理美容イラスト -->
-      <svg class="hero-main-svg" viewBox="0 0 440 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 背景の輪 -->
-        <circle cx="220" cy="230" r="195" stroke="#3D6B63" stroke-width="1" stroke-dasharray="3 8" opacity=".25"/>
-        <circle cx="220" cy="230" r="165" stroke="#C4828A" stroke-width=".8" stroke-dasharray="2 10" opacity=".2"/>
+        <!-- 施術者（黄色エプロン） -->
+        <!-- 頭 -->
+        <circle cx="130" cy="100" r="36" fill="#F5DEB3" stroke="#D4A87A" stroke-width="1.5"/>
+        <!-- 髪（黒） -->
+        <path d="M96 88 Q100 62 130 60 Q160 62 164 88" fill="#2C1810" opacity=".9"/>
+        <path d="M96 90 Q88 80 90 104" fill="#2C1810" opacity=".8"/>
+        <!-- まとめ髪 -->
+        <ellipse cx="130" cy="64" rx="10" ry="5" fill="#2C1810" opacity=".7" transform="rotate(-5,130,64)"/>
+        <!-- 顔 -->
+        <circle cx="120" cy="96" r="3" fill="#8B6A50" opacity=".7"/>
+        <circle cx="140" cy="96" r="3" fill="#8B6A50" opacity=".7"/>
+        <path d="M123 108 Q130 114 137 108" stroke="#8B6A50" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- 眉 -->
+        <path d="M115 88 Q120 85 125 88" stroke="#5A3A20" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M135 88 Q140 85 145 88" stroke="#5A3A20" stroke-width="1.2" fill="none" stroke-linecap="round"/>
 
-        <!-- メインの輪（グラデーション） -->
-        <circle cx="220" cy="230" r="140" stroke="url(#ringGrad)" stroke-width="2.5" opacity=".6"/>
-        <defs>
-          <linearGradient id="ringGrad" x1="80" y1="90" x2="360" y2="370" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#3D6B63"/>
-            <stop offset="50%" stop-color="#C4828A"/>
-            <stop offset="100%" stop-color="#B8935A"/>
-          </linearGradient>
-          <linearGradient id="bgCircle" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#EAF3F1"/>
-            <stop offset="100%" stop-color="#F5EDE6"/>
-          </linearGradient>
-          <radialGradient id="figureGrad" cx="50%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#5D8E85"/>
-            <stop offset="100%" stop-color="#3D6B63"/>
-          </radialGradient>
-        </defs>
+        <!-- 体（黄色エプロン） -->
+        <path d="M92 140 Q102 128 130 126 Q158 128 168 140 L175 290 Q130 300 85 290 Z" fill="white" stroke="#D0D8E0" stroke-width="1.2"/>
+        <!-- エプロン -->
+        <path d="M100 145 Q115 135 130 133 Q145 135 160 145 L165 285 Q130 293 95 285 Z" fill="#F5C842" opacity=".85"/>
+        <!-- エプロン紐 -->
+        <line x1="108" y1="145" x2="100" y2="125" stroke="#D4A820" stroke-width="2" stroke-linecap="round"/>
+        <line x1="152" y1="145" x2="160" y2="125" stroke="#D4A820" stroke-width="2" stroke-linecap="round"/>
+        <!-- ポケット -->
+        <rect x="118" y="175" width="24" height="18" rx="3" fill="rgba(255,255,255,0.5)" stroke="#D4A820" stroke-width="1"/>
 
-        <!-- 円形のベース -->
-        <circle cx="220" cy="230" r="130" fill="url(#bgCircle)" opacity=".7"/>
-
-        <!-- はさみ（大きく、中央） -->
-        <g transform="translate(180, 100)">
-          <!-- 刃A -->
-          <path d="M20 10 C15 35 12 65 18 95" stroke="#3D6B63" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <!-- 刃B -->
-          <path d="M32 10 C37 35 40 65 34 95" stroke="#3D6B63" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <!-- 留め具 -->
-          <circle cx="26" cy="52" r="5" fill="none" stroke="#C4828A" stroke-width="2.5"/>
-          <circle cx="26" cy="52" r="2" fill="#C4828A"/>
-          <!-- グリップ -->
-          <ellipse cx="14" cy="110" rx="12" ry="18" stroke="#3D6B63" stroke-width="2.2" fill="none"/>
-          <ellipse cx="38" cy="110" rx="12" ry="18" stroke="#3D6B63" stroke-width="2.2" fill="none"/>
-          <!-- 指穴 -->
-          <circle cx="14" cy="110" r="6" stroke="#5D8E85" stroke-width="1.2" fill="none"/>
-          <circle cx="38" cy="110" r="6" stroke="#5D8E85" stroke-width="1.2" fill="none"/>
+        <!-- 左腕（ドライヤー持ち） -->
+        <path d="M92 148 Q65 165 58 200 Q54 225 62 245" stroke="#F5DEB3" stroke-width="22" stroke-linecap="round" fill="none"/>
+        <path d="M92 148 Q65 165 58 200 Q54 225 62 245" stroke="#F5C842" stroke-width="23" stroke-linecap="round" fill="none" opacity=".3"/>
+        <!-- 手 -->
+        <circle cx="62" cy="248" r="14" fill="#F5DEB3" stroke="#D4A87A" stroke-width="1.2"/>
+        <!-- ドライヤー -->
+        <g transform="translate(30, 240) rotate(-20)">
+          <rect x="0" y="0" width="28" height="18" rx="6" fill="#1B3A5C"/>
+          <rect x="28" y="4" width="18" height="10" rx="3" fill="#2A5278"/>
+          <circle cx="8" cy="9" r="4" fill="#4AA8C8" opacity=".6"/>
+          <!-- 風 -->
+          <path d="M46 2 Q52 5 52 9 Q52 13 46 16" stroke="#B8E4F0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M50 0 Q58 4 58 9 Q58 14 50 18" stroke="#B8E4F0" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".6"/>
         </g>
 
-        <!-- くし -->
-        <g transform="translate(260, 170) rotate(-30)">
-          <rect x="0" y="0" width="88" height="16" rx="5" stroke="#B8935A" stroke-width="2" fill="none"/>
-          <line x1="12" y1="16" x2="12" y2="42" stroke="#B8935A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="22" y1="16" x2="22" y2="46" stroke="#B8935A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="32" y1="16" x2="32" y2="42" stroke="#B8935A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="42" y1="16" x2="42" y2="46" stroke="#B8935A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="52" y1="16" x2="52" y2="42" stroke="#B8935A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="62" y1="16" x2="62" y2="46" stroke="#B8935A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="72" y1="16" x2="72" y2="42" stroke="#B8935A" stroke-width="2" stroke-linecap="round"/>
+        <!-- 右腕 -->
+        <path d="M168 148 Q195 165 202 200 Q206 225 198 245" stroke="#F5DEB3" stroke-width="22" stroke-linecap="round" fill="none"/>
+        <path d="M168 148 Q195 165 202 200 Q206 225 198 245" stroke="#F5C842" stroke-width="23" stroke-linecap="round" fill="none" opacity=".3"/>
+        <circle cx="198" cy="248" r="14" fill="#F5DEB3" stroke="#D4A87A" stroke-width="1.2"/>
+        <!-- くし（右手） -->
+        <g transform="translate(202, 238) rotate(15)">
+          <rect x="0" y="0" width="32" height="9" rx="3" fill="#1B3A5C"/>
+          <line x1="5" y1="9" x2="5" y2="20" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="10" y1="9" x2="10" y2="22" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="15" y1="9" x2="15" y2="20" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="20" y1="9" x2="20" y2="22" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="25" y1="9" x2="25" y2="20" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round"/>
         </g>
 
-        <!-- 鏡 -->
-        <g transform="translate(100, 165)">
-          <ellipse cx="35" cy="50" rx="32" ry="42" stroke="#5D8E85" stroke-width="2" fill="rgba(168,197,191,0.15)"/>
-          <ellipse cx="35" cy="48" rx="24" ry="34" stroke="#A8C5BF" stroke-width="1" fill="rgba(168,197,191,0.1)"/>
-          <rect x="29" y="90" width="12" height="22" rx="3" stroke="#5D8E85" stroke-width="1.8" fill="none"/>
-          <line x1="20" y1="112" x2="50" y2="112" stroke="#5D8E85" stroke-width="2" stroke-linecap="round"/>
-        </g>
+        <!-- 足 -->
+        <rect x="100" y="288" width="22" height="80" rx="8" fill="#1B3A5C"/>
+        <rect x="138" y="288" width="22" height="80" rx="8" fill="#1B3A5C"/>
+        <!-- 靴 -->
+        <ellipse cx="111" cy="372" rx="18" ry="7" fill="#0D1F33"/>
+        <ellipse cx="149" cy="372" rx="18" ry="7" fill="#0D1F33"/>
 
-        <!-- 人物（施術を受ける方：シルエット） -->
-        <g transform="translate(155, 280)">
+        <!-- 施術を受ける方（椅子座り、右側） -->
+        <g transform="translate(210, 160)">
           <!-- 椅子 -->
-          <rect x="10" y="70" width="110" height="8" rx="4" fill="#C4828A" opacity=".4"/>
-          <rect x="15" y="78" width="8" height="35" rx="3" fill="#C4828A" opacity=".3"/>
-          <rect x="107" y="78" width="8" height="35" rx="3" fill="#C4828A" opacity=".3"/>
+          <rect x="5" y="100" width="100" height="10" rx="4" fill="#B8E4F0"/>
+          <rect x="10" y="110" width="10" height="40" rx="4" fill="#9DD4E8"/>
+          <rect x="90" y="110" width="10" height="40" rx="4" fill="#9DD4E8"/>
           <!-- 背もたれ -->
-          <rect x="20" y="25" width="90" height="50" rx="6" fill="#E8B4BA" opacity=".3" stroke="#C4828A" stroke-width="1.2"/>
+          <rect x="15" y="55" width="80" height="50" rx="8" fill="#D0EEF8" stroke="#B8E4F0" stroke-width="1.2"/>
           <!-- 人物 -->
-          <circle cx="65" cy="15" r="18" fill="#F5EDE6" stroke="#B8935A" stroke-width="1.8"/>
-          <!-- 髪 -->
-          <path d="M47 10 Q65 -5 83 10" fill="#8B6F5C" opacity=".7"/>
-          <path d="M47 12 Q40 8 42 20" fill="#8B6F5C" opacity=".6"/>
-          <path d="M83 12 Q90 8 88 20" fill="#8B6F5C" opacity=".6"/>
-          <!-- 顔パーツ -->
-          <circle cx="57" cy="15" r="2" fill="#7A6A60" opacity=".6"/>
-          <circle cx="73" cy="15" r="2" fill="#7A6A60" opacity=".6"/>
-          <path d="M59 22 Q65 26 71 22" stroke="#7A6A60" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <circle cx="55" cy="38" r="28" fill="#F5DEB3" stroke="#D4A87A" stroke-width="1.5"/>
+          <!-- 白髪（高齢者） -->
+          <path d="M28 26 Q30 8 55 6 Q80 8 82 26" fill="#C8C8C8" opacity=".9"/>
+          <path d="M28 28 Q22 20 24 38" fill="#C8C8C8" opacity=".8"/>
+          <path d="M82 28 Q88 20 86 38" fill="#C8C8C8" opacity=".8"/>
+          <!-- 顔 -->
+          <circle cx="46" cy="36" r="2.5" fill="#7A6A5A" opacity=".7"/>
+          <circle cx="64" cy="36" r="2.5" fill="#7A6A5A" opacity=".7"/>
+          <path d="M49 46 Q55 50 61 46" stroke="#7A6A5A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <!-- 笑顔 -->
+          <path d="M46 32 Q48 29 50 32" stroke="#7A6A5A" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M60 32 Q62 29 64 32" stroke="#7A6A5A" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <!-- 体（服） -->
+          <path d="M27 65 Q35 56 55 54 Q75 56 83 65 L88 100 L22 100 Z" fill="#7ECDE8" opacity=".8"/>
         </g>
 
-        <!-- 小花モチーフ（ひとの輪らしい温かみ） -->
-        <g transform="translate(70, 320)">
-          <circle r="5" cx="0" cy="0" fill="none" stroke="#C4828A" stroke-width="1.2"/>
-          <circle r="8" cx="0" cy="-11" fill="#C4828A" opacity=".25"/>
-          <circle r="8" cx="9.5" cy="-5.5" fill="#C4828A" opacity=".2"/>
-          <circle r="8" cx="9.5" cy="5.5" fill="#C4828A" opacity=".25"/>
-          <circle r="8" cx="0" cy="11" fill="#C4828A" opacity=".2"/>
-          <circle r="8" cx="-9.5" cy="5.5" fill="#C4828A" opacity=".25"/>
-          <circle r="8" cx="-9.5" cy="-5.5" fill="#C4828A" opacity=".2"/>
+        <!-- 装飾の花モチーフ -->
+        <g transform="translate(46, 310)" opacity=".5">
+          <circle r="8" cx="0" cy="-12" fill="#B8E4F0"/>
+          <circle r="8" cx="10.4" cy="-6" fill="#C5EDF8"/>
+          <circle r="8" cx="10.4" cy="6" fill="#B8E4F0"/>
+          <circle r="8" cx="0" cy="12" fill="#C5EDF8"/>
+          <circle r="8" cx="-10.4" cy="6" fill="#B8E4F0"/>
+          <circle r="8" cx="-10.4" cy="-6" fill="#C5EDF8"/>
+          <circle cx="0" cy="0" r="6" fill="#4AA8C8" opacity=".4"/>
         </g>
-        <g transform="translate(360, 135)">
-          <circle r="4" cx="0" cy="0" fill="none" stroke="#B8935A" stroke-width="1"/>
-          <circle r="6" cx="0" cy="-9" fill="#B8935A" opacity=".2"/>
-          <circle r="6" cx="7.8" cy="-4.5" fill="#B8935A" opacity=".2"/>
-          <circle r="6" cx="7.8" cy="4.5" fill="#B8935A" opacity=".2"/>
-          <circle r="6" cx="0" cy="9" fill="#B8935A" opacity=".2"/>
-          <circle r="6" cx="-7.8" cy="4.5" fill="#B8935A" opacity=".2"/>
-          <circle r="6" cx="-7.8" cy="-4.5" fill="#B8935A" opacity=".2"/>
-        </g>
-        <g transform="translate(80, 140)">
-          <circle r="3.5" cx="0" cy="0" fill="none" stroke="#5D8E85" stroke-width="1"/>
-          <circle r="5.5" cx="0" cy="-8" fill="#5D8E85" opacity=".18"/>
-          <circle r="5.5" cx="6.9" cy="-4" fill="#5D8E85" opacity=".18"/>
-          <circle r="5.5" cx="6.9" cy="4" fill="#5D8E85" opacity=".18"/>
-          <circle r="5.5" cx="0" cy="8" fill="#5D8E85" opacity=".18"/>
-          <circle r="5.5" cx="-6.9" cy="4" fill="#5D8E85" opacity=".18"/>
-          <circle r="5.5" cx="-6.9" cy="-4" fill="#5D8E85" opacity=".18"/>
+        <g transform="translate(334, 320)" opacity=".4">
+          <circle r="6" cx="0" cy="-9" fill="#F5C842"/>
+          <circle r="6" cx="7.8" cy="-4.5" fill="#F5D870"/>
+          <circle r="6" cx="7.8" cy="4.5" fill="#F5C842"/>
+          <circle r="6" cx="0" cy="9" fill="#F5D870"/>
+          <circle r="6" cx="-7.8" cy="4.5" fill="#F5C842"/>
+          <circle r="6" cx="-7.8" cy="-4.5" fill="#F5D870"/>
+          <circle cx="0" cy="0" r="5" fill="#D4A820" opacity=".4"/>
         </g>
 
         <!-- ブランド名 -->
-        <text x="220" y="452" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B63" letter-spacing="6" opacity=".7">ひとの輪</text>
-        <line x1="130" y1="445" x2="175" y2="445" stroke="#C4828A" stroke-width=".8" opacity=".5"/>
-        <line x1="265" y1="445" x2="310" y2="445" stroke="#C4828A" stroke-width=".8" opacity=".5"/>
+        <text x="190" y="402" text-anchor="middle" font-size="11" fill="#1B3A5C" letter-spacing="6" font-family="sans-serif" opacity=".5">ひとの輪</text>
       </svg>
     </div>
   </div>
+</div>
+
+<!-- はさみ区切り -->
+<div class="scissors-divider">
+  <span class="scissors-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 9C7.65685 9 9 7.65685 9 6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M20 4L8.12 15.88" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14.47 14.48L20 20M8.12 8.12L12 12" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </span>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <p class="section-watermark">About</p>
+  <div class="section-head">
+    <div class="section-label-small">ひとの輪について</div>
+    <h2>ひとの輪が大切にしていること</h2>
+    <div class="heading-underline"></div>
+  </div>
+  <div class="about-inner">
+    <span class="quote-mark">"</span>
+    <p class="about-text">
+      皆様、いつも弊社のサービスをご利用頂きありがとうございます。<br>
+      訪問理美容サービス「ひとの輪」です。
+    </p>
+    <p class="about-text">
+      水戸市内を中心に、ひたちなか市・那珂市・笠間市などに訪問して、<br>
+      <span class="about-highlight">理美容サービスを提供しております。</span>
+    </p>
+    <p class="about-text">
+      介護の知識を習得した美容師・理容師が、美容室や理容室で受けられるサービスを<br>
+      訪問・出張してサービス提供致します。<br>
+      主に高齢者施設や病院、ご自宅にお伺いして訪問美容の活動をしております。
+    </p>
+    <p class="about-text">
+      ご希望の日程やお時間、料金含めて、柔軟に対応致しますので、<br>
+      ぜひ一度、<span class="about-highlight">ご相談ください。</span>
+    </p>
+    <span class="quote-mark right">"</span>
+  </div>
 </section>
 
-<!-- CONCEPT -->
-<div class="concept-section">
-  <div class="concept-bg-ring"></div>
-  <div class="concept-bg-ring2"></div>
-  <div class="concept-bg-ring3"></div>
-  <div class="concept-inner">
-    <p class="section-label">Our Concept</p>
-    <h2>ひとの輪が、<br>大切にしていること</h2>
-    <div class="section-divider"></div>
-    <p class="concept-body">
-      「ひとの輪」という名前には、<strong>人と人がつながり、笑顔の輪が広がっていく</strong>という願いが込められています。<br><br>
-      訪問理美容は、単なる散髪ではありません。施術者が訪ねることで生まれる会話、安心感、そして「きれいになった」という喜び——それがご本人の生活の質を高め、ご家族や介護スタッフの方々との笑顔の輪へとつながっていきます。<br><br>
-      外出が難しくなっても、<strong>髪を整える喜びは変わりません</strong>。ひとの輪は、その喜びをご自宅や施設へお届けします。
-    </p>
-    <blockquote class="concept-quote">
-      髪を整えることは、心を整えること。<br>
-      ひとの輪は、あなたのそばへ。
-    </blockquote>
+<!-- 連絡先バナー -->
+<div class="contact-banner">
+  <div class="contact-banner-item">
+    <div class="contact-banner-label">TEL</div>
+    <div class="contact-banner-val"><a href="tel:0000000000">000-0000-0000</a></div>
+    <div class="contact-banner-sub">受付時間：9:00〜18:00（年中無休）</div>
+  </div>
+  <div class="contact-banner-item">
+    <div class="contact-banner-label">MAIL</div>
+    <div class="contact-banner-val"><a href="mailto:your@email.com">your@email.com</a></div>
+    <div class="contact-banner-sub">24時間受付・翌営業日以内にご返信</div>
   </div>
 </div>
 
-<!-- FEATURES -->
-<section id="features" class="bg-cream2">
-  <div class="section-header">
-    <p class="section-label">Features</p>
-    <h2>ひとの輪が選ばれる理由</h2>
-    <div class="section-divider"></div>
-    <p class="section-lead">安心してお任せいただける、4つのこだわりをご紹介します。</p>
+<!-- はさみ区切り -->
+<div class="scissors-divider" style="background:white">
+  <span class="scissors-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 9C7.65685 9 9 7.65685 9 6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M20 4L8.12 15.88" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14.47 14.48L20 20M8.12 8.12L12 12" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </span>
+</div>
+
+<!-- FEATURE -->
+<section id="feature" class="feature-section">
+  <p class="section-watermark">Feature</p>
+  <div class="section-head">
+    <div class="section-label-small">選ばれる理由</div>
+    <h2>水戸市で最高の訪問理美容サービスを</h2>
+    <div class="heading-underline"></div>
   </div>
   <div class="feature-grid">
 
     <div class="feature-card">
-      <svg class="feature-illus" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 家のイラスト -->
-        <path d="M8 32 L32 10 L56 32" stroke="#3D6B63" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
-        <rect x="14" y="30" width="36" height="26" rx="2" stroke="#3D6B63" stroke-width="2" fill="rgba(168,197,191,0.15)"/>
-        <rect x="26" y="40" width="12" height="16" rx="1.5" stroke="#5D8E85" stroke-width="1.8" fill="rgba(168,197,191,0.2)"/>
-        <rect x="18" y="36" width="9" height="9" rx="1" stroke="#B8935A" stroke-width="1.5" fill="rgba(184,147,90,0.12)"/>
-        <rect x="37" y="36" width="9" height="9" rx="1" stroke="#B8935A" stroke-width="1.5" fill="rgba(184,147,90,0.12)"/>
-        <!-- 煙突 -->
-        <rect x="38" y="16" width="6" height="12" rx="1" stroke="#3D6B63" stroke-width="1.5" fill="none"/>
-      </svg>
-      <h3>住み慣れた場所でのご施術</h3>
-      <p>ご自宅・老人ホーム・グループホームなど、慣れ親しんだ環境でゆっくりと施術をお受けいただけます。移動の心配は不要です。</p>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 16 L16 6 L26 16" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+          <rect x="9" y="14" width="14" height="12" rx="1.5" stroke="white" stroke-width="2" fill="none"/>
+          <rect x="13" y="19" width="6" height="7" rx="1" stroke="white" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="feature-deco">Feature</div>
+      <h3>豊富なメニュー</h3>
+      <p>カット・パーマ・ヘアカラーのほか、フェイシャルエステ・ネイル・メイク・シェービングなどエステさながらの豊富なメニューをご提供。</p>
     </div>
 
     <div class="feature-card">
-      <svg class="feature-illus" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 手を取り合うイラスト -->
-        <path d="M16 38 C14 34 13 28 16 24 C18 21 22 20 24 23 L26 27" stroke="#3D6B63" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M48 38 C50 34 51 28 48 24 C46 21 42 20 40 23 L38 27" stroke="#C4828A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <!-- 合わさった手 -->
-        <path d="M22 32 Q26 28 32 30 Q38 28 42 32 L42 44 Q38 48 32 48 Q26 48 22 44 Z" stroke="#3D6B63" stroke-width="2" fill="rgba(168,197,191,0.2)"/>
-        <circle cx="32" cy="16" r="7" stroke="#B8935A" stroke-width="2" fill="rgba(184,147,90,0.12)"/>
-        <path d="M25 23 Q32 28 39 23" stroke="#B8935A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      </svg>
-      <h3>介護・医療への深い理解</h3>
-      <p>寝たきりや車椅子の方にも対応。介護の知識を持つ施術者が安全を最優先に、一人ひとりに合った施術を丁寧に行います。</p>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="12" r="5" stroke="white" stroke-width="2"/>
+          <path d="M8 26 C8 20 24 20 24 26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="10" stroke="white" stroke-width="1.5" stroke-dasharray="2 3" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="feature-deco">Feature</div>
+      <h3>地域密着型サービス</h3>
+      <p>水戸市・ひたちなか市などの地域に根ざしたサービス提供体制を構築。各地の病院や施設、在宅のお客様がサービス対象です。</p>
     </div>
 
     <div class="feature-card">
-      <svg class="feature-illus" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- カレンダー＋時計 -->
-        <rect x="10" y="14" width="36" height="34" rx="3" stroke="#3D6B63" stroke-width="2" fill="rgba(168,197,191,0.1)"/>
-        <line x1="10" y1="22" x2="46" y2="22" stroke="#3D6B63" stroke-width="2"/>
-        <line x1="20" y1="10" x2="20" y2="18" stroke="#3D6B63" stroke-width="2" stroke-linecap="round"/>
-        <line x1="36" y1="10" x2="36" y2="18" stroke="#3D6B63" stroke-width="2" stroke-linecap="round"/>
-        <!-- 日付 -->
-        <rect x="15" y="26" width="6" height="5" rx="1" fill="#C4828A" opacity=".6"/>
-        <rect x="25" y="26" width="6" height="5" rx="1" fill="#A8C5BF" opacity=".6"/>
-        <rect x="35" y="26" width="6" height="5" rx="1" fill="#A8C5BF" opacity=".6"/>
-        <rect x="15" y="34" width="6" height="5" rx="1" fill="#A8C5BF" opacity=".6"/>
-        <rect x="25" y="34" width="6" height="5" rx="1" fill="#C4828A" opacity=".6"/>
-        <!-- 時計 -->
-        <circle cx="50" cy="46" r="10" fill="white" stroke="#B8935A" stroke-width="2"/>
-        <line x1="50" y1="46" x2="50" y2="40" stroke="#B8935A" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="50" y1="46" x2="54" y2="46" stroke="#3D6B63" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="50" cy="46" r="1.5" fill="#3D6B63"/>
-      </svg>
-      <h3>柔軟なスケジュール対応</h3>
-      <p>ご本人・ご家族・施設スタッフのご都合に合わせて日時を調整します。定期訪問のご依頼もお気軽にご相談ください。</p>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="11" stroke="white" stroke-width="2"/>
+          <path d="M16 9 L16 16 L21 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="feature-deco">Feature</div>
+      <h3>スピード対応</h3>
+      <p>高齢者の心身の状況は変わりやすいもの。急なスケジュール変更や突発的なご要望にも施設やお客様のご都合を最優先にスピード対応。</p>
     </div>
 
     <div class="feature-card">
-      <svg class="feature-illus" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 認定証・資格 -->
-        <rect x="12" y="10" width="40" height="32" rx="3" stroke="#3D6B63" stroke-width="2" fill="rgba(168,197,191,0.1)"/>
-        <!-- リボン -->
-        <circle cx="32" cy="38" r="14" fill="rgba(196,130,138,0.15)" stroke="#C4828A" stroke-width="1.5"/>
-        <circle cx="32" cy="38" r="9" fill="rgba(196,130,138,0.1)" stroke="#C4828A" stroke-width="1"/>
-        <path d="M26 46 L28 56 L32 52 L36 56 L38 46" fill="#C4828A" opacity=".5"/>
-        <!-- 星 -->
-        <path d="M32 32 L33.5 36.5 L38 36.5 L34.5 39 L36 43.5 L32 41 L28 43.5 L29.5 39 L26 36.5 L30.5 36.5 Z" fill="#B8935A" opacity=".7"/>
-        <!-- テキスト行 -->
-        <line x1="20" y1="18" x2="44" y2="18" stroke="#5D8E85" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="22" y1="23" x2="42" y2="23" stroke="#A8C5BF" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>
-      <h3>国家資格を持つプロが担当</h3>
-      <p>理容師・美容師の国家資格保有者が施術を担当。衛生管理も徹底しており、安心してお任せいただけます。</p>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="8" width="20" height="16" rx="2" stroke="white" stroke-width="2"/>
+          <path d="M6 12 L26 12" stroke="white" stroke-width="1.5"/>
+          <path d="M11 17 L15 21 L21 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="feature-deco">Feature</div>
+      <h3>様々なお会計方法</h3>
+      <p>施設様に負担のかからない、また利用者のご要望に沿ったさまざまなお会計方法に対応いたします。</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="10" r="4" stroke="white" stroke-width="2"/>
+          <path d="M10 20 L10 26 M16 20 L16 26 M22 20 L22 26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8 18 Q16 14 24 18" stroke="white" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="feature-deco">Feature</div>
+      <h3>移動のサポート</h3>
+      <p>介護の知識を習得したスタッフが利用者様を施術スペースまで安全にご案内いたします。施設の負担を軽減します。</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4 L16 8 M16 24 L16 28 M4 16 L8 16 M24 16 L28 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="7" stroke="white" stroke-width="2"/>
+          <path d="M12 16 L15 19 L20 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="feature-deco">Feature</div>
+      <h3>衛生・感染症対策</h3>
+      <p>訪問するスタッフは感染症対策の知識を身につけ、定期的にPCR検査または抗原検査を行っています。</p>
     </div>
 
   </div>
 </section>
+
+<!-- はさみ区切り -->
+<div class="scissors-divider" style="background:white">
+  <span class="scissors-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 9C7.65685 9 9 7.65685 9 6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M20 4L8.12 15.88" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14.47 14.48L20 20M8.12 8.12L12 12" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </span>
+</div>
 
 <!-- FLOW -->
-<section id="flow">
-  <div class="section-header">
-    <p class="section-label">How It Works</p>
-    <h2>ご利用の流れ</h2>
-    <div class="section-divider"></div>
-    <p class="section-lead">初めての方も安心してご利用いただけます。</p>
+<section id="flow" class="flow-section">
+  <p class="section-watermark">Flow</p>
+  <div class="section-head">
+    <div class="section-label-small">ご利用の流れ</div>
+    <h2>訪問・施術までの流れ</h2>
+    <div class="heading-underline"></div>
   </div>
-  <div class="flow-steps">
+  <div class="flow-grid">
 
-    <div class="flow-step">
-      <div class="flow-num">
-        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="44" cy="44" r="40" fill="rgba(61,107,99,0.08)" stroke="#3D6B63" stroke-width="1.5"/>
-          <text x="44" y="38" text-anchor="middle" font-size="11" fill="#3D6B63" letter-spacing="1" font-family="sans-serif">STEP</text>
-          <text x="44" y="56" text-anchor="middle" font-size="20" fill="#3D6B63" font-family="serif" font-weight="600">1</text>
-        </svg>
-      </div>
-      <h3>お電話でご相談</h3>
-      <p>まずはお電話ください。ご状況・ご希望をお聞きし、最適なプランをご提案します。</p>
+    <div class="flow-card">
+      <svg class="flow-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" fill="#EAF6FC"/>
+        <!-- 電話 -->
+        <path d="M18 16 C17 19 17 22 19 25 C21 28 24 30 27 31 C30 32 33 32 35 31 L33 27 C31 27 29 27.5 28 29 C25 27 24 25 23 23 C24.5 22 25 20 25 18 Z" stroke="#1B3A5C" stroke-width="1.8" fill="none"/>
+        <!-- LINE風 -->
+        <rect x="28" y="20" width="10" height="8" rx="2" stroke="#4AA8C8" stroke-width="1.5" fill="none"/>
+        <line x1="30" y1="23" x2="36" y2="23" stroke="#4AA8C8" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="30" y1="25.5" x2="34" y2="25.5" stroke="#4AA8C8" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <h3>お問い合わせ</h3>
+      <p>まずは現在抱えているお悩みを解決いたします。ご質問やご相談など何でもお答えしますのでお気軽にお問合せください。<br>お電話・メール・フォームより承ります。</p>
     </div>
 
-    <div class="flow-step">
-      <div class="flow-num">
-        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="44" cy="44" r="40" fill="rgba(196,130,138,0.08)" stroke="#C4828A" stroke-width="1.5"/>
-          <text x="44" y="38" text-anchor="middle" font-size="11" fill="#C4828A" letter-spacing="1" font-family="sans-serif">STEP</text>
-          <text x="44" y="56" text-anchor="middle" font-size="20" fill="#C4828A" font-family="serif" font-weight="600">2</text>
-        </svg>
-      </div>
-      <h3>日時・内容のご確認</h3>
-      <p>ご都合の良い日時を調整し、施術内容・ご準備いただくものをご説明します。</p>
+    <div class="flow-card">
+      <svg class="flow-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" fill="#EAF6FC"/>
+        <!-- カレンダー -->
+        <rect x="14" y="16" width="24" height="20" rx="2" stroke="#1B3A5C" stroke-width="1.8" fill="none"/>
+        <line x1="14" y1="22" x2="38" y2="22" stroke="#1B3A5C" stroke-width="1.5"/>
+        <line x1="20" y1="12" x2="20" y2="18" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="32" y1="12" x2="32" y2="18" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- チェック -->
+        <path d="M19 28 L23 32 L33 24" stroke="#4AA8C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>料金・日程の打ち合わせ</h3>
+      <p>お客様に合った料金プランやお会計方法、日程をご相談しましょう。できる限り施設様やご利用者様のご要望に沿った内容を検討いたします。</p>
     </div>
 
-    <div class="flow-step">
-      <div class="flow-num">
-        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="44" cy="44" r="40" fill="rgba(184,147,90,0.08)" stroke="#B8935A" stroke-width="1.5"/>
-          <text x="44" y="38" text-anchor="middle" font-size="11" fill="#B8935A" letter-spacing="1" font-family="sans-serif">STEP</text>
-          <text x="44" y="56" text-anchor="middle" font-size="20" fill="#B8935A" font-family="serif" font-weight="600">3</text>
-        </svg>
-      </div>
-      <h3>ご訪問・施術</h3>
-      <p>当日は施術者がお伺いします。カウンセリングを行いながら、ご希望通りのスタイルに仕上げます。</p>
+    <div class="flow-card">
+      <svg class="flow-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" fill="#EAF6FC"/>
+        <!-- はさみ -->
+        <path d="M18 14 Q20 22 18 30" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M24 14 Q22 22 24 30" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="15" cy="34" rx="5" ry="7" stroke="#1B3A5C" stroke-width="1.5" fill="none"/>
+        <ellipse cx="27" cy="34" rx="5" ry="7" stroke="#1B3A5C" stroke-width="1.5" fill="none"/>
+        <circle cx="21" cy="22" r="3" stroke="#4AA8C8" stroke-width="1.5" fill="none"/>
+        <!-- 星スパーク -->
+        <path d="M33 16 L34.5 20 L38 16 L34.5 20 L38 24 L34.5 20 L33 24 L34.5 20 L31 16 L34.5 20 Z" stroke="#F5C842" stroke-width="1.2" fill="none"/>
+      </svg>
+      <h3>依頼場所へ訪問・施術</h3>
+      <p>当日は施術の際に必要な準備や終了後の清掃などを弊社スタッフが責任を持って行います。車椅子の方も施術スペースまで安全にご案内。</p>
     </div>
 
-    <div class="flow-step">
-      <div class="flow-num">
-        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="44" cy="44" r="40" fill="rgba(93,142,133,0.08)" stroke="#5D8E85" stroke-width="1.5"/>
-          <text x="44" y="38" text-anchor="middle" font-size="11" fill="#5D8E85" letter-spacing="1" font-family="sans-serif">STEP</text>
-          <text x="44" y="56" text-anchor="middle" font-size="20" fill="#5D8E85" font-family="serif" font-weight="600">4</text>
-        </svg>
-      </div>
-      <h3>お支払い・次回予約</h3>
-      <p>施術後にお支払いをいただきます。次回のご予約もその場で承ります。定期ご訪問も大歓迎です。</p>
+    <div class="flow-card highlighted">
+      <svg class="flow-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" fill="rgba(255,255,255,0.4)"/>
+        <!-- 財布・会計 -->
+        <rect x="12" y="18" width="28" height="18" rx="3" stroke="#1B3A5C" stroke-width="2" fill="none"/>
+        <rect x="12" y="22" width="28" height="4" stroke="#1B3A5C" stroke-width="1" fill="rgba(27,58,92,0.1)"/>
+        <circle cx="34" cy="27" r="3.5" stroke="#1B3A5C" stroke-width="1.5" fill="none"/>
+        <!-- コイン -->
+        <circle cx="18" cy="30" r="2.5" stroke="#1B3A5C" stroke-width="1.2" fill="none"/>
+        <line x1="12" y1="15" x2="40" y2="15" stroke="#1B3A5C" stroke-width="1.5" stroke-dasharray="2 2"/>
+      </svg>
+      <h3>お会計・次回予約</h3>
+      <p>施設様・ご利用者様のご希望に沿ったお会計方法で対応。当日の現金会計、後日の銀行振込や口座引き落としなどさまざまな方法がございます。領収書も発行致します。</p>
     </div>
 
   </div>
 </section>
 
-<!-- MENU -->
-<section id="menu" class="bg-cream2">
-  <div class="section-header">
-    <p class="section-label">Price Menu</p>
-    <h2>料金メニュー</h2>
-    <div class="section-divider"></div>
-    <p class="section-lead">明朗な料金体系でご利用いただけます。初回は無料カウンセリング実施中。</p>
-  </div>
-  <div class="menu-grid">
+<!-- はさみ区切り -->
+<div class="scissors-divider" style="background:var(--gray-bg)">
+  <span class="scissors-icon" style="background:var(--gray-bg)">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 9C7.65685 9 9 7.65685 9 6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M20 4L8.12 15.88" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14.47 14.48L20 20M8.12 8.12L12 12" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </span>
+</div>
 
-    <div>
-      <div class="menu-card">
-        <div class="menu-card-head">
-          <svg class="menu-card-head-illus" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- はさみ -->
-            <path d="M12 6 Q14 16 12 26" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-            <path d="M18 6 Q16 16 18 26" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-            <circle cx="15" cy="16" r="2.5" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" fill="none"/>
-            <ellipse cx="10" cy="31" rx="5" ry="7" stroke="white" stroke-width="1.5" fill="none"/>
-            <ellipse cx="20" cy="31" rx="5" ry="7" stroke="white" stroke-width="1.5" fill="none"/>
-            <!-- くし -->
-            <rect x="24" y="10" width="13" height="7" rx="2" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" fill="none"/>
-            <line x1="26" y1="17" x2="26" y2="26" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="29" y1="17" x2="29" y2="28" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="32" y1="17" x2="32" y2="26" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="35" y1="17" x2="35" y2="28" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <h3>カット・基本メニュー</h3>
-        </div>
-        <div class="menu-rows">
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">カット（男性）</div>
-              <div class="menu-row-detail">シャンプー・ブロー込み</div>
-            </div>
-            <div class="menu-row-price">¥3,500〜</div>
-          </div>
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">カット（女性）</div>
-              <div class="menu-row-detail">シャンプー・ブロー込み</div>
-            </div>
-            <div class="menu-row-price">¥4,000〜</div>
-          </div>
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">シャンプー・セット</div>
-              <div class="menu-row-detail">カット不要の方向け</div>
-            </div>
-            <div class="menu-row-price">¥2,000〜</div>
-          </div>
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">顔剃り（男性）</div>
-              <div class="menu-row-detail">カットとのセットも可</div>
-            </div>
-            <div class="menu-row-price">¥1,000〜</div>
-          </div>
-        </div>
+<!-- MENU -->
+<section id="menu" class="menu-section">
+  <p class="section-watermark">Menu&amp;Price</p>
+  <div class="section-head">
+    <div class="section-label-small">料金案内</div>
+    <h2>訪問理美容メニューと料金</h2>
+    <div class="heading-underline"></div>
+  </div>
+  <div class="menu-blocks">
+
+    <div class="menu-block">
+      <span class="menu-block-badge">menu</span>
+      <div>
+        <h3>理美容メニュー</h3>
+        <ul class="menu-list">
+          <li><span>カット（男性）シャンプー・ブロー込み</span><span class="menu-price">¥3,500〜</span></li>
+          <li><span>カット（女性）シャンプー・ブロー込み</span><span class="menu-price">¥4,000〜</span></li>
+          <li><span>カット＋白髪染め（ショート〜ミディアム）</span><span class="menu-price">¥7,000〜</span></li>
+          <li><span>シャンプー・セット（カット不要の方）</span><span class="menu-price">¥2,000〜</span></li>
+          <li><span>顔剃り（男性）カットとのセットも可</span><span class="menu-price">¥1,000〜</span></li>
+          <li><span>パーマ・ヘアカラー・ネイル・メイク 等</span><span class="menu-price">要相談</span></li>
+        </ul>
       </div>
+      <svg class="menu-block-illus" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 本・メニューブック -->
+        <rect x="20" y="15" width="60" height="70" rx="5" fill="#F5C842" opacity=".8"/>
+        <rect x="25" y="20" width="50" height="60" rx="3" fill="white" opacity=".9"/>
+        <rect x="18" y="15" width="12" height="70" rx="3" fill="#D4A820"/>
+        <!-- テキスト行 -->
+        <line x1="32" y1="32" x2="68" y2="32" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round"/>
+        <line x1="32" y1="40" x2="60" y2="40" stroke="#B8E4F0" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="32" y1="48" x2="65" y2="48" stroke="#B8E4F0" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="32" y1="56" x2="58" y2="56" stroke="#B8E4F0" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- 人物（読む人） -->
+        <circle cx="72" cy="78" r="14" fill="#F5DEB3" stroke="#D4A87A" stroke-width="1.2"/>
+        <path d="M60 80 Q66 76 72 76 Q78 76 84 80 L84 90 L60 90 Z" fill="#4AA8C8" opacity=".7"/>
+      </svg>
     </div>
 
-    <div>
-      <div class="menu-card">
-        <div class="menu-card-head" style="background: linear-gradient(90deg, #8B5E6A, #C4828A);">
-          <svg class="menu-card-head-illus" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- カラーブラシ -->
-            <path d="M8 32 L26 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <path d="M24 6 L34 12 L28 22 L18 16 Z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.2)"/>
-            <path d="M6 30 Q6 36 12 36 Q14 36 16 34 L8 30 Z" fill="rgba(255,255,255,0.4)" stroke="white" stroke-width="1.2"/>
-            <!-- ドット（カラーイメージ） -->
-            <circle cx="30" cy="32" r="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.2"/>
-            <circle cx="26" cy="30" r="2.5" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="1"/>
-          </svg>
-          <h3>カラー・スペシャルメニュー</h3>
-        </div>
-        <div class="menu-rows">
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">カット＋白髪染め</div>
-              <div class="menu-row-detail">ショート〜ミディアム</div>
-            </div>
-            <div class="menu-row-price">¥7,000〜</div>
-          </div>
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">白髪染めのみ</div>
-              <div class="menu-row-detail">カラーリング</div>
-            </div>
-            <div class="menu-row-price">¥4,500〜</div>
-          </div>
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">出張費（水戸市内）</div>
-              <div class="menu-row-detail">市内全域対応</div>
-            </div>
-            <div class="menu-row-price" style="color:#3D6B63">無料</div>
-          </div>
-          <div class="menu-row">
-            <div>
-              <div class="menu-row-name">出張費（市外）</div>
-              <div class="menu-row-detail">周辺市町村</div>
-            </div>
-            <div class="menu-row-price">¥500〜</div>
-          </div>
-        </div>
+    <div class="menu-block">
+      <span class="menu-block-badge">price</span>
+      <div>
+        <h3>料金について</h3>
+        <ul class="menu-list">
+          <li><span>出張費（水戸市内）</span><span class="menu-price" style="color:#1B3A5C">無料</span></li>
+          <li><span>出張費（水戸市外・周辺市町村）</span><span class="menu-price">¥500〜</span></li>
+          <li><span>介護施設・グループホームへの定期訪問</span><span class="menu-price">別途お見積り</span></li>
+          <li><span>初回カウンセリング</span><span class="menu-price" style="color:#1B3A5C">無料</span></li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.8rem;line-height:1.8">
+          ひとの輪はお客様の今のお悩みやご要望をお伺いした上で、最適な料金プランとお会計方法をご提示しております。まずはお気軽にお問い合わせください。
+        </p>
       </div>
+      <svg class="menu-block-illus" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 高齢者とお財布 -->
+        <circle cx="50" cy="30" r="18" fill="#F5DEB3" stroke="#D4A87A" stroke-width="1.2"/>
+        <path d="M34 32 Q34 24 50 22 Q66 24 66 32" fill="#C8C8C8" opacity=".8"/>
+        <circle cx="43" cy="28" r="2" fill="#8B6A50" opacity=".7"/>
+        <circle cx="57" cy="28" r="2" fill="#8B6A50" opacity=".7"/>
+        <path d="M45 36 Q50 40 55 36" stroke="#8B6A50" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M34 50 Q38 44 50 42 Q62 44 66 50 L70 75 L30 75 Z" fill="#F5C842" opacity=".8"/>
+        <!-- お財布 -->
+        <rect x="55" y="62" width="28" height="20" rx="4" fill="#1B3A5C"/>
+        <path d="M55 68 L83 68" stroke="white" stroke-width="1.2"/>
+        <circle cx="68" cy="74" r="3.5" fill="#4AA8C8" opacity=".8"/>
+        <!-- チェック -->
+        <circle cx="28" cy="62" r="10" fill="#4AA8C8" opacity=".2" stroke="#4AA8C8" stroke-width="1.5"/>
+        <path d="M23 62 L27 66 L33 58" stroke="#4AA8C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
 
   </div>
   <div class="menu-note">
-    <strong>ご注意事項：</strong>料金は目安です。髪の長さ・状態により変動する場合があります。
-    介護施設・グループホームへの定期訪問は別途お見積りいたします。
-    初回の方は無料カウンセリングを実施しています。お気軽にご連絡ください。
+    ※ 料金は目安です。髪の長さ・状態により変動する場合があります。<br>
+    ※ 介護施設・グループホームへの定期訪問は別途お見積りいたします。<br>
+    ※ 初回の方は無料カウンセリングを実施しています。お気軽にご連絡ください。
   </div>
 </section>
 
-<!-- PROFILE -->
-<section id="profile">
-  <div class="section-header">
-    <p class="section-label">About</p>
-    <h2>施術者プロフィール</h2>
-    <div class="section-divider"></div>
-  </div>
-  <div class="profile-grid">
-
-    <div class="profile-illus-wrap">
-      <div class="profile-illus-bg"></div>
-      <!-- プロフィールイラスト -->
-      <svg class="profile-illus" viewBox="0 0 360 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 背景の輪 -->
-        <circle cx="180" cy="180" r="160" fill="url(#profileBg)" opacity=".5"/>
-        <defs>
-          <radialGradient id="profileBg" cx="40%" cy="40%" r="70%">
-            <stop offset="0%" stop-color="#EAF3F1"/>
-            <stop offset="100%" stop-color="#F5EDE6"/>
-          </radialGradient>
-        </defs>
-        <circle cx="180" cy="180" r="140" stroke="#3D6B63" stroke-width="1" stroke-dasharray="4 8" opacity=".3"/>
-
-        <!-- 施術者シルエット（立ち姿） -->
-        <!-- 頭 -->
-        <circle cx="180" cy="100" r="42" fill="#F5E6D8" stroke="#B8935A" stroke-width="2"/>
-        <!-- 髪 -->
-        <path d="M138 90 Q145 60 180 58 Q215 60 222 90" fill="#5A3E2B" opacity=".8"/>
-        <path d="M138 92 Q132 80 135 110" fill="#5A3E2B" opacity=".7"/>
-        <path d="M222 92 Q228 80 225 110" fill="#5A3E2B" opacity=".7"/>
-        <!-- まとめ髪 -->
-        <path d="M162 62 Q180 50 198 62 Q200 56 180 52 Q160 56 162 62Z" fill="#5A3E2B" opacity=".5"/>
-        <!-- 顔パーツ -->
-        <ellipse cx="167" cy="98" rx="4" ry="3.5" fill="#7A5A40" opacity=".6"/>
-        <ellipse cx="193" cy="98" rx="4" ry="3.5" fill="#7A5A40" opacity=".6"/>
-        <path d="M170 112 Q180 119 190 112" stroke="#7A5A40" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-        <path d="M162 88 Q167 84 172 88" stroke="#7A5A40" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-        <path d="M188 88 Q193 84 198 88" stroke="#7A5A40" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-
-        <!-- 体（白衣/ユニフォーム） -->
-        <path d="M138 148 Q148 138 180 136 Q212 138 222 148 L230 280 Q180 290 130 280 Z" fill="white" stroke="#A8C5BF" stroke-width="1.5"/>
-        <!-- 胸ポケット -->
-        <rect x="186" y="158" width="18" height="22" rx="3" fill="#A8C5BF" opacity=".4" stroke="#5D8E85" stroke-width="1"/>
-        <!-- はさみ（ポケットに入っている） -->
-        <line x1="192" y1="160" x2="190" y2="178" stroke="#3D6B63" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="196" y1="160" x2="198" y2="178" stroke="#3D6B63" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- 腕 -->
-        <path d="M138 152 Q115 165 110 200 Q108 220 118 235" stroke="#F5E6D8" stroke-width="22" stroke-linecap="round" fill="none"/>
-        <path d="M138 152 Q115 165 110 200 Q108 220 118 235" stroke="#A8C5BF" stroke-width="22.5" stroke-linecap="round" fill="none" opacity=".3"/>
-        <path d="M222 152 Q245 165 250 200 Q252 220 242 235" stroke="#F5E6D8" stroke-width="22" stroke-linecap="round" fill="none"/>
-        <path d="M222 152 Q245 165 250 200 Q252 220 242 235" stroke="#A8C5BF" stroke-width="22.5" stroke-linecap="round" fill="none" opacity=".3"/>
-        <!-- 手 -->
-        <circle cx="118" cy="240" r="14" fill="#F5E6D8" stroke="#D4B8A0" stroke-width="1.5"/>
-        <circle cx="242" cy="240" r="14" fill="#F5E6D8" stroke="#D4B8A0" stroke-width="1.5"/>
-        <!-- くし（右手に持つ） -->
-        <g transform="translate(248, 235) rotate(30)">
-          <rect x="0" y="0" width="28" height="7" rx="2" fill="none" stroke="#B8935A" stroke-width="1.5"/>
-          <line x1="4" y1="7" x2="4" y2="16" stroke="#B8935A" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="8" y1="7" x2="8" y2="18" stroke="#B8935A" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="12" y1="7" x2="12" y2="16" stroke="#B8935A" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="16" y1="7" x2="16" y2="18" stroke="#B8935A" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="20" y1="7" x2="20" y2="16" stroke="#B8935A" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="24" y1="7" x2="24" y2="18" stroke="#B8935A" stroke-width="1.3" stroke-linecap="round"/>
-        </g>
-
-        <!-- 足・ズボン -->
-        <path d="M150 278 L145 370" stroke="#3D5A53" stroke-width="24" stroke-linecap="round" fill="none"/>
-        <path d="M210 278 L215 370" stroke="#3D5A53" stroke-width="24" stroke-linecap="round" fill="none"/>
-        <!-- 靴 -->
-        <ellipse cx="145" cy="372" rx="20" ry="8" fill="#2A2A24"/>
-        <ellipse cx="215" cy="372" rx="20" ry="8" fill="#2A2A24"/>
-
-        <!-- 装飾（背景の花） -->
-        <g transform="translate(55,240)" opacity=".4">
-          <circle r="12" cx="0" cy="0" fill="none" stroke="#C4828A" stroke-width="1"/>
-          <circle r="7" cx="0" cy="-16" fill="#C4828A" opacity=".35"/>
-          <circle r="7" cx="13.9" cy="-8" fill="#C4828A" opacity=".3"/>
-          <circle r="7" cx="13.9" cy="8" fill="#C4828A" opacity=".35"/>
-          <circle r="7" cx="0" cy="16" fill="#C4828A" opacity=".3"/>
-          <circle r="7" cx="-13.9" cy="8" fill="#C4828A" opacity=".35"/>
-          <circle r="7" cx="-13.9" cy="-8" fill="#C4828A" opacity=".3"/>
-        </g>
-        <g transform="translate(298,130)" opacity=".35">
-          <circle r="9" cx="0" cy="0" fill="none" stroke="#B8935A" stroke-width="1"/>
-          <circle r="5.5" cx="0" cy="-13" fill="#B8935A" opacity=".3"/>
-          <circle r="5.5" cx="11.3" cy="-6.5" fill="#B8935A" opacity=".3"/>
-          <circle r="5.5" cx="11.3" cy="6.5" fill="#B8935A" opacity=".3"/>
-          <circle r="5.5" cx="0" cy="13" fill="#B8935A" opacity=".3"/>
-          <circle r="5.5" cx="-11.3" cy="6.5" fill="#B8935A" opacity=".3"/>
-          <circle r="5.5" cx="-11.3" cy="-6.5" fill="#B8935A" opacity=".3"/>
-        </g>
-      </svg>
-    </div>
-
-    <div>
-      <p class="profile-name">山田 花子</p>
-      <p class="profile-role">理容師・美容師 国家資格保有 / 代表</p>
-      <p class="profile-text">
-        茨城県水戸市出身。美容専門学校卒業後、市内の美容院に10年以上勤務。
-        その後、ご自身の家族の介護をきっかけに「外出が難しい方にも、きれいな髪で毎日を過ごしてほしい」という思いから、訪問理美容を開始しました。
-      </p>
-      <p class="profile-text">
-        施術中はゆっくりとお話を聞きながら、お客様のペースを大切にしています。
-        髪を通じて「ひとの輪」が広がるよう、一人ひとりとの出会いを大切にしています。
-      </p>
-      <div class="profile-tags">
-        <span class="tag">理容師免許</span>
-        <span class="tag">美容師免許</span>
-        <span class="tag">訪問理美容10年以上</span>
-        <span class="tag">介護初任者研修修了</span>
-        <span class="tag">福祉理美容士</span>
-      </div>
-    </div>
-
-  </div>
-</section>
+<!-- はさみ区切り -->
+<div class="scissors-divider">
+  <span class="scissors-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 9C7.65685 9 9 7.65685 9 6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M20 4L8.12 15.88" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14.47 14.48L20 20M8.12 8.12L12 12" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </span>
+</div>
 
 <!-- AREA -->
 <section id="area" class="area-section">
-  <div class="section-header">
-    <p class="section-label">Service Area</p>
-    <h2>対応地域</h2>
-    <div class="section-divider"></div>
-    <p class="section-lead">茨城県水戸市を中心に、周辺市町村へお伺いします。</p>
+  <p class="section-watermark">Area</p>
+  <div class="section-head">
+    <div class="section-label-small">対応エリア</div>
+    <h2>茨城県内の訪問エリア</h2>
+    <div class="heading-underline"></div>
   </div>
-  <div class="area-layout">
-    <div>
-      <!-- 茨城県マップ（スタイライズされたSVG） -->
-      <svg class="area-map-illus" viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 茨城県の簡略化した輪郭 -->
-        <path d="M80 30 L100 20 L140 25 L180 18 L220 30 L240 60 L250 100 L245 140 L250 180 L240 220 L230 260 L210 290 L180 305 L150 300 L120 290 L100 270 L80 240 L70 200 L60 160 L55 120 L60 80 Z" fill="rgba(168,197,191,0.2)" stroke="#5D8E85" stroke-width="1.5"/>
-        <!-- 市区町村の境界（簡略化） -->
-        <path d="M140 25 L145 80 L160 120 L155 160" stroke="#A8C5BF" stroke-width=".8" stroke-dasharray="3 4" opacity=".6"/>
-        <path d="M80 140 L140 130 L200 140" stroke="#A8C5BF" stroke-width=".8" stroke-dasharray="3 4" opacity=".6"/>
-        <path d="M90 200 L150 195 L210 190" stroke="#A8C5BF" stroke-width=".8" stroke-dasharray="3 4" opacity=".6"/>
-        <!-- 水戸市（中央・強調） -->
-        <circle cx="148" cy="130" r="22" fill="#3D6B63" opacity=".25"/>
-        <circle cx="148" cy="130" r="14" fill="#3D6B63" opacity=".4"/>
-        <circle cx="148" cy="130" r="7" fill="#3D6B63"/>
-        <!-- 水戸市ラベル -->
-        <text x="148" y="164" text-anchor="middle" font-size="10" fill="#3D6B63" letter-spacing="1" font-family="sans-serif" font-weight="500">水戸市</text>
-        <!-- 波紋 -->
-        <circle cx="148" cy="130" r="28" stroke="#3D6B63" stroke-width=".8" opacity=".3" stroke-dasharray="2 4"/>
-        <circle cx="148" cy="130" r="38" stroke="#3D6B63" stroke-width=".6" opacity=".2" stroke-dasharray="2 6"/>
-        <!-- 周辺都市ドット -->
-        <circle cx="170" cy="105" r="4.5" fill="#B8935A" opacity=".7"/>
-        <text x="178" y="108" font-size="8" fill="#B8935A" font-family="sans-serif">ひたちなか市</text>
-        <circle cx="130" cy="105" r="4" fill="#C4828A" opacity=".7"/>
-        <text x="92" y="102" font-size="8" fill="#C4828A" font-family="sans-serif">那珂市</text>
-        <circle cx="110" cy="145" r="4" fill="#C4828A" opacity=".7"/>
-        <text x="65" y="148" font-size="8" fill="#C4828A" font-family="sans-serif">笠間市</text>
-        <circle cx="170" cy="150" r="4" fill="#B8935A" opacity=".7"/>
-        <text x="178" y="153" font-size="8" fill="#B8935A" font-family="sans-serif">小美玉市</text>
-        <circle cx="165" cy="120" r="3.5" fill="#5D8E85" opacity=".7"/>
-        <text x="172" y="122" font-size="8" fill="#5D8E85" font-family="sans-serif">茨城町</text>
-        <circle cx="190" cy="125" r="3.5" fill="#5D8E85" opacity=".7"/>
-        <text x="197" y="128" font-size="8" fill="#5D8E85" font-family="sans-serif">大洗町</text>
-        <circle cx="118" cy="118" r="3.5" fill="#5D8E85" opacity=".7"/>
-        <text x="70" y="120" font-size="8" fill="#5D8E85" font-family="sans-serif">城里町</text>
-        <!-- 凡例 -->
-        <circle cx="65" cy="285" r="5" fill="#3D6B63"/>
-        <text x="75" y="289" font-size="9" fill="#3D6B63" font-family="sans-serif">出張費無料エリア</text>
-        <circle cx="65" cy="300" r="4" fill="#B8935A" opacity=".7"/>
-        <text x="75" y="304" font-size="9" fill="#B8935A" font-family="sans-serif">出張費¥500〜</text>
-      </svg>
-    </div>
 
-    <div>
-      <div class="area-grid">
-        <div class="area-card"><span class="area-pip" style="background:#3D6B63; box-shadow: 0 0 0 3px rgba(61,107,99,0.2)"></span><span>水戸市</span></div>
-        <div class="area-card"><span class="area-pip"></span><span>ひたちなか市</span></div>
-        <div class="area-card"><span class="area-pip"></span><span>那珂市</span></div>
-        <div class="area-card"><span class="area-pip"></span><span>笠間市</span></div>
-        <div class="area-card"><span class="area-pip"></span><span>小美玉市</span></div>
-        <div class="area-card"><span class="area-pip"></span><span>茨城町</span></div>
-        <div class="area-card"><span class="area-pip"></span><span>大洗町</span></div>
-        <div class="area-card"><span class="area-pip"></span><span>城里町</span></div>
+  <div class="area-box" style="margin-bottom:1.4rem">
+    <p class="area-box-title">- 水戸市・周辺 訪問対応エリア -</p>
+    <div class="area-tags">
+      <span class="area-tag" style="border-color:var(--navy);font-weight:700;background:rgba(27,58,92,0.06)">水戸市</span>
+      <span class="area-tag">ひたちなか市</span>
+      <span class="area-tag">那珂市</span>
+      <span class="area-tag">笠間市</span>
+      <span class="area-tag">小美玉市</span>
+      <span class="area-tag">茨城町</span>
+      <span class="area-tag">大洗町</span>
+      <span class="area-tag">城里町</span>
+    </div>
+    <p class="area-note">
+      訪問エリア内でも対応できない場合、エリア外でも対応できる場合がございます。<br>
+      お気軽にご相談ください。
+    </p>
+  </div>
+
+  <div class="area-box">
+    <p class="area-box-title">- 訪問対象施設 -</p>
+    <p style="font-size:.88rem;color:var(--muted);line-height:2.1">
+      介護老人保健施設・特別養護老人ホーム・有料老人ホーム・グループホーム・<br>
+      障がい者施設・ホスピス・リハビリ病院・精神病院・透析病院・個人宅（在宅）等
+    </p>
+  </div>
+</section>
+
+<!-- はさみ区切り -->
+<div class="scissors-divider">
+  <span class="scissors-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 9C7.65685 9 9 7.65685 9 6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z" stroke="#4AA8C8" stroke-width="1.5"/>
+      <path d="M20 4L8.12 15.88" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14.47 14.48L20 20M8.12 8.12L12 12" stroke="#4AA8C8" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </span>
+</div>
+
+<!-- CONTACT FORM -->
+<!--
+  ★ Formspreeの使い方 ★
+  1. https://formspree.io に無料登録（メールアドレスのみ）
+  2. 「New Form」を作成し、受信するメールアドレスを設定
+  3. 表示されるフォームIDをコピー（例：xpzgkwqr）
+  4. 下の action="https://formspree.io/f/YOUR_FORM_ID" の
+     YOUR_FORM_ID を取得したIDに書き換える
+-->
+<section id="contact" class="contact-section">
+  <p class="section-watermark">Contact</p>
+  <div class="section-head">
+    <div class="section-label-small">お問い合わせ</div>
+    <h2>お問い合わせ・ご予約</h2>
+    <div class="heading-underline"></div>
+  </div>
+
+  <div class="contact-form-wrap">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+      <div class="form-row">
+        <label class="form-label">お名前 <span class="required-badge">必須</span></label>
+        <input class="form-input" type="text" name="name" placeholder="例：田中 太郎" required>
       </div>
-      <p class="area-note">
-        ※ 水戸市内は出張費無料です。<br>
-        ※ 上記以外のエリアもご相談ください。<br>
-        ※ 遠方の場合は別途出張費をいただく場合があります。
+
+      <div class="form-row">
+        <label class="form-label">施設名・法人名</label>
+        <input class="form-input" type="text" name="organization" placeholder="例：〇〇老人ホーム（個人の方は空欄可）">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">電話番号 <span class="required-badge">必須</span></label>
+        <input class="form-input" type="tel" name="phone" placeholder="例：029-000-0000" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">メールアドレス <span class="required-badge">必須</span></label>
+        <input class="form-input" type="email" name="email" placeholder="例：example@email.com" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">地域 <span class="required-badge">必須</span></label>
+        <select class="form-select" name="area" required>
+          <option value="">▼ お選びください</option>
+          <option>水戸市</option>
+          <option>ひたちなか市</option>
+          <option>那珂市</option>
+          <option>笠間市</option>
+          <option>小美玉市</option>
+          <option>茨城町</option>
+          <option>大洗町</option>
+          <option>城里町</option>
+          <option>その他</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">お問い合わせ内容 <span class="required-badge">必須</span></label>
+        <textarea class="form-textarea" name="message" placeholder="ご質問・ご要望・ご希望の日程など、お気軽にご記入ください。" required></textarea>
+      </div>
+
+      <p class="form-privacy">
+        ご入力いただいた個人情報は、お問い合わせへの回答および<br>
+        サービスのご案内のみに利用させていただきます。
       </p>
-    </div>
 
+      <button type="submit" class="form-submit">送　信</button>
+    </form>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-layout">
-
-    <div>
-      <!-- お問い合わせのイラスト -->
-      <svg class="contact-illus" viewBox="0 0 360 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="contactBg" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#EAF3F1"/>
-            <stop offset="100%" stop-color="transparent"/>
-          </radialGradient>
-        </defs>
-        <circle cx="180" cy="170" r="160" fill="url(#contactBg)"/>
-        <!-- 電話機のイラスト -->
-        <g transform="translate(80, 80)">
-          <!-- 受話器 -->
-          <path d="M40 20 Q40 8 52 8 L88 8 Q100 8 100 20 L100 140 Q100 152 88 152 L52 152 Q40 152 40 140 Z" fill="white" stroke="#3D6B63" stroke-width="2.5"/>
-          <!-- 画面 -->
-          <rect x="48" y="24" width="44" height="72" rx="4" fill="rgba(168,197,191,0.2)" stroke="#A8C5BF" stroke-width="1.5"/>
-          <!-- 通話アイコン（画面内） -->
-          <path d="M60 42 Q65 38 72 42 Q72 50 78 56 Q82 63 78 68 Q74 68 70 64 Q65 70 60 66 Q54 60 58 54 Q60 48 60 42Z" fill="rgba(61,107,99,0.15)" stroke="#3D6B63" stroke-width="1.8"/>
-          <!-- 文字行（着信） -->
-          <line x1="55" y1="108" x2="85" y2="108" stroke="#A8C5BF" stroke-width="2" stroke-linecap="round"/>
-          <line x1="60" y1="116" x2="80" y2="116" stroke="#C4828A" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- ホームボタン -->
-          <circle cx="70" cy="140" r="6" stroke="#A8C5BF" stroke-width="1.5" fill="none"/>
-        </g>
-
-        <!-- 吹き出し1 -->
-        <g transform="translate(200, 60)">
-          <rect x="0" y="0" width="120" height="50" rx="10" fill="white" stroke="#3D6B63" stroke-width="1.5"/>
-          <path d="M20 50 L10 65 L40 50" fill="white" stroke="#3D6B63" stroke-width="1.5"/>
-          <line x1="12" y1="16" x2="108" y2="16" stroke="#A8C5BF" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="12" y1="28" x2="88" y2="28" stroke="#C4828A" stroke-width="1.2" stroke-linecap="round"/>
-          <line x1="12" y1="38" x2="96" y2="38" stroke="#A8C5BF" stroke-width="1.2" stroke-linecap="round"/>
-        </g>
-
-        <!-- 吹き出し2（返信） -->
-        <g transform="translate(30, 170)">
-          <rect x="0" y="0" width="105" height="44" rx="10" fill="rgba(61,107,99,0.1)" stroke="#3D6B63" stroke-width="1.2"/>
-          <path d="M85 44 L100 58 L70 44" fill="rgba(61,107,99,0.1)" stroke="#3D6B63" stroke-width="1.2"/>
-          <line x1="12" y1="14" x2="93" y2="14" stroke="#3D6B63" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="12" y1="26" x2="75" y2="26" stroke="#5D8E85" stroke-width="1.1" stroke-linecap="round"/>
-        </g>
-
-        <!-- 花モチーフ（右下） -->
-        <g transform="translate(278, 240)" opacity=".5">
-          <circle r="10" cx="0" cy="0" fill="none" stroke="#C4828A" stroke-width="1.2"/>
-          <circle r="7" cx="0" cy="-15" fill="#C4828A" opacity=".3"/>
-          <circle r="7" cx="13" cy="-7.5" fill="#C4828A" opacity=".3"/>
-          <circle r="7" cx="13" cy="7.5" fill="#C4828A" opacity=".3"/>
-          <circle r="7" cx="0" cy="15" fill="#C4828A" opacity=".3"/>
-          <circle r="7" cx="-13" cy="7.5" fill="#C4828A" opacity=".3"/>
-          <circle r="7" cx="-13" cy="-7.5" fill="#C4828A" opacity=".3"/>
-        </g>
-
-        <!-- 笑顔の輪（ひとの輪モチーフ） -->
-        <g transform="translate(55, 250)">
-          <circle cx="0" cy="0" r="18" stroke="#B8935A" stroke-width="1.2" stroke-dasharray="3 4" opacity=".6"/>
-          <circle cx="0" cy="-18" r="7" fill="rgba(184,147,90,0.3)"/>
-          <circle cx="15.6" cy="-9" r="7" fill="rgba(196,130,138,0.3)"/>
-          <circle cx="15.6" cy="9" r="7" fill="rgba(93,142,133,0.3)"/>
-          <circle cx="0" cy="18" r="7" fill="rgba(184,147,90,0.25)"/>
-          <circle cx="-15.6" cy="9" r="7" fill="rgba(196,130,138,0.25)"/>
-          <circle cx="-15.6" cy="-9" r="7" fill="rgba(93,142,133,0.25)"/>
-          <!-- スマイル -->
-          <circle cx="0" cy="-18" r="3.5" fill="#B8935A" opacity=".6"/>
-          <path d="M-2 -17 Q0 -15 2 -17" stroke="#B8935A" stroke-width=".8" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-    </div>
-
-    <div>
-      <div class="contact-box">
-        <p class="section-label">Contact</p>
-        <h2>お問い合わせ・ご予約</h2>
-        <div class="section-divider"></div>
-        <p class="contact-sub">
-          ご予約・ご質問はお電話にて承っております。<br>
-          「訪問理美容 ひとの輪 の問い合わせです」とお伝えください。
-        </p>
-        <div class="phone-block">
-          <div class="phone-label">TEL</div>
-          <div class="phone-number">000-0000-0000</div>
-          <div class="phone-hours">受付時間：9:00〜18:00（年中無休）</div>
-        </div>
-        <ul class="contact-list">
-          <li>初回は無料カウンセリングを実施しています</li>
-          <li>介護施設の担当者様からのお問い合わせも歓迎します</li>
-          <li>定期訪問のご相談もお気軽にどうぞ</li>
-          <li>留守番電話へのメッセージにも折り返しご連絡いたします</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- フッター -->
 <footer>
   <div class="footer-logo">
-    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="17" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
-      <g transform="translate(20,20)">
-        <circle cx="0" cy="-10" r="2.5" fill="rgba(255,255,255,0.7)"/>
-        <circle cx="-8.7" cy="5" r="2.5" fill="rgba(196,130,138,0.7)"/>
-        <circle cx="8.7" cy="5" r="2.5" fill="rgba(184,147,90,0.7)"/>
-        <path d="M0 -7.5 Q-5 0 -6.5 6.5" stroke="rgba(255,255,255,0.25)" stroke-width=".8" fill="none"/>
-        <path d="M0 -7.5 Q5 0 6.5 6.5" stroke="rgba(255,255,255,0.25)" stroke-width=".8" fill="none"/>
-        <path d="M-6.5 8.5 Q0 12 6.5 8.5" stroke="rgba(255,255,255,0.25)" stroke-width=".8" fill="none"/>
-      </g>
+    <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="18" fill="rgba(184,228,240,0.2)"/>
+      <circle cx="20" cy="20" r="14" fill="none" stroke="rgba(184,228,240,0.4)" stroke-width="1" stroke-dasharray="2 3"/>
+      <circle cx="20" cy="9" r="3" fill="rgba(255,255,255,0.8)"/>
+      <path d="M16 13.5 Q20 12 24 13.5 L24 17 Q20 18 16 17Z" fill="rgba(255,255,255,0.6)"/>
+      <circle cx="11" cy="25" r="2.5" fill="rgba(184,228,240,0.8)"/>
+      <path d="M8 29 Q11 27.5 14 29 L14 32 Q11 33 8 32Z" fill="rgba(184,228,240,0.6)"/>
+      <circle cx="29" cy="25" r="2.5" fill="rgba(245,200,66,0.8)"/>
+      <path d="M26 29 Q29 27.5 32 29 L32 32 Q29 33 26 32Z" fill="rgba(245,200,66,0.6)"/>
     </svg>
-    <span class="footer-logo-text">訪問理美容 ひとの輪</span>
+    <span>訪問理美容 ひとの輪</span>
   </div>
   <p>茨城県水戸市・周辺エリア対応</p>
-  <p style="margin-top:.2rem">&copy; 2026 訪問理美容 ひとの輪 All rights reserved.</p>
+  <p style="margin-top:.3rem">
+    TEL: <a href="tel:0000000000">000-0000-0000</a>
+    MAIL: <a href="mailto:your@email.com">your@email.com</a>
+  </p>
+  <p style="margin-top:.8rem">&copy; 2026 訪問理美容 ひとの輪 All rights reserved.</p>
 </footer>
 
 </body>
