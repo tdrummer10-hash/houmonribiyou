@@ -1684,5 +1684,11 @@
   <p style="margin-top:.8rem">&copy; 2026 訪問理美容 ひとの輪 All rights reserved.</p>
 </footer>
 
+<script>
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname);
+    window.scrollTo(0, 0);
+  }
+</script>
 </body>
 </html>
