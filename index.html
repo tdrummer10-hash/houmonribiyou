@@ -368,6 +368,9 @@
       overflow-wrap: break-word;
     }
     .sp-br { display: none; }
+    @media (min-width: 769px) {
+      .feat-infection-img { width: 155px !important; height: 155px !important; }
+    }
     @media (max-width: 768px) {
       .pc-br { display: none; }
       .sp-br { display: inline; }
@@ -1027,7 +1030,7 @@
 
     <div class="feature-card">
       <div class="feature-icon-wrap" style="background:none;width:200px;height:200px">
-        <img src="feat6.png" alt="衛生・感染症対策" style="width:200px;height:200px;object-fit:contain;">
+        <img src="feat6.png" alt="衛生・感染症対策" class="feat-infection-img" style="width:200px;height:200px;object-fit:contain;">
       </div>
       <div class="feature-deco">Feature</div>
       <h3>衛生・感染症対策</h3>
