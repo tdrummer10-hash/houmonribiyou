@@ -262,8 +262,11 @@
       position: relative;
     }
     .hero-art img {
-      width: clamp(600px, 45vw, 850px);
+      width: min(100%, 360px);
       height: auto;
+    }
+    @media (min-width: 769px) {
+      .hero-art img { width: clamp(600px, 45vw, 850px); }
     }
 
     /* ── はさみ区切り ── */
