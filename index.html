@@ -118,6 +118,97 @@
     }
     .nav-contact-btn:hover { background: var(--green-l); }
 
+    /* ── ハンバーガーボタン ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: var(--green);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: transform .25s, opacity .25s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── SPドロワーメニュー ── */
+    .sp-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 300;
+    }
+    .sp-nav-overlay.open { display: block; }
+    .sp-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 260px;
+      height: 100%;
+      background: white;
+      z-index: 310;
+      padding: 1.5rem 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+      transition: right .3s ease;
+    }
+    .sp-nav-drawer.open { right: 0; }
+    .sp-nav-close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+      padding: 4px;
+    }
+    .sp-nav-drawer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sp-nav-drawer ul li a {
+      display: block;
+      padding: .9rem 0;
+      border-bottom: 1px solid var(--cream2);
+      text-decoration: none;
+      font-size: .95rem;
+      color: var(--text);
+      letter-spacing: .06em;
+    }
+    .sp-nav-cta {
+      display: block;
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: .85rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      margin-top: auto;
+    }
+
     /* ── 固定サイドボタン ── */
     .fixed-contact {
       position: fixed;
@@ -729,6 +820,7 @@
     @media (max-width: 768px) {
       nav { padding: 0 4vw; }
       .nav-links, .nav-contact-btn { display: none; }
+      .hamburger { display: flex; }
       .hero-tagline { display: block; }
       .hero-inner { grid-template-columns: 1fr; padding: 3rem 5vw; min-height: auto; gap: 2rem; }
       .hero-art { order: -1; }
@@ -786,7 +878,22 @@
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
   <a class="nav-contact-btn" href="#contact">お問い合わせ</a>
+  <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="sp-nav-overlay" id="spNavOverlay"></div>
+<div class="sp-nav-drawer" id="spNavDrawer">
+  <button class="sp-nav-close" id="spNavClose" aria-label="閉じる">✕</button>
+  <ul>
+    <li><a href="#about">ひとの輪について</a></li>
+    <li><a href="#feature">特徴</a></li>
+    <li><a href="#menu">料金</a></li>
+    <li><a href="#area">対応エリア</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <a class="sp-nav-cta" href="#contact">お問い合わせ</a>
+</div>
 
 <!-- ヒーロー -->
 <div class="hero bg-pattern">
@@ -1317,8 +1424,33 @@
         var id = this.getAttribute('href').slice(1);
         var target = document.getElementById(id);
         if (target) target.scrollIntoView({ behavior: 'smooth' });
+        closeDrawer();
       });
     });
+
+    var hamburger = document.getElementById('hamburger');
+    var drawer = document.getElementById('spNavDrawer');
+    var overlay = document.getElementById('spNavOverlay');
+    var closeBtn = document.getElementById('spNavClose');
+
+    function openDrawer() {
+      hamburger.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      hamburger.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', function() {
+      drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+    });
+    overlay.addEventListener('click', closeDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
   });
 </script>
 </body>
