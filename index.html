@@ -423,14 +423,15 @@
     /* ── FEATURE ── */
     .feature-section { background: white; }
     .feature-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.4rem;
     }
     .feature-card {
-      flex: 0 1 calc(33.333% - 1.4rem);
-      min-width: 260px;
+      border: 2px solid;
+      border-radius: 16px;
+      padding: 2rem 1.6rem;
+      text-align: center;
       transition: transform .2s, box-shadow .2s;
     }
     .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
@@ -713,7 +714,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .feature-card { flex: 0 1 calc(50% - 1.4rem); }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
       .flow-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
@@ -727,7 +728,7 @@
       .fixed-contact { display: none; }
       .menu-block { grid-template-columns: 1fr; }
       .menu-block-illus { display: none; }
-      .feature-card { flex: 0 1 100%; min-width: unset; }
+      .feature-grid { grid-template-columns: 1fr; }
       .flow-grid { grid-template-columns: 1fr; }
       .form-row { flex-direction: column; gap: .4rem; }
       .form-label { width: auto; padding-top: 0; }
