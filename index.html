@@ -263,7 +263,7 @@
       width: 100%;
       padding: 4rem 8vw;
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 1fr 1.6fr;
       align-items: center;
       gap: 3rem;
     }
@@ -359,7 +359,7 @@
       height: auto;
     }
     @media (min-width: 769px) {
-      .hero-art img { width: clamp(700px, 52vw, 980px); }
+      .hero-art img { width: clamp(780px, 58vw, 1080px); }
     }
 
     /* ── はさみ区切り ── */
@@ -522,9 +522,14 @@
     .feature-section { background: white; }
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 1.4rem;
     }
+    .feature-grid .feature-card:nth-child(1) { grid-column: span 2; }
+    .feature-grid .feature-card:nth-child(2) { grid-column: span 2; }
+    .feature-grid .feature-card:nth-child(3) { grid-column: span 2; }
+    .feature-grid .feature-card:nth-child(4) { grid-column: 2 / span 2; }
+    .feature-grid .feature-card:nth-child(5) { grid-column: 4 / span 2; }
     .feature-card {
       border: 2px solid;
       border-radius: 16px;
@@ -862,7 +867,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .feature-grid .feature-card:nth-child(n) { grid-column: span 1; }
+      .feature-grid .feature-card:nth-child(5) { grid-column: 1 / -1; max-width: 60%; margin: 0 auto; }
       .flow-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
