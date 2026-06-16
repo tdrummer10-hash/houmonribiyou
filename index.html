@@ -55,7 +55,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg opacity='.08' fill='none' stroke='%231B3A5C' stroke-width='1.5'%3E%3C!-- ドライヤー --%3E%3Crect x='10' y='8' width='20' height='14' rx='4'/%3E%3Cpath d='M30 15 L44 15 L44 19 L30 19'/%3E%3Ccircle cx='8' cy='22' r='4'/%3E%3C!-- はさみ --%3E%3Cpath d='M70 10 Q72 20 70 30' stroke-linecap='round'/%3E%3Cpath d='M76 10 Q74 20 76 30' stroke-linecap='round'/%3E%3Cellipse cx='67' cy='34' rx='5' ry='7'/%3E%3Cellipse cx='79' cy='34' rx='5' ry='7'/%3E%3C!-- くし --%3E%3Crect x='8' y='55' width='40' height='8' rx='3'/%3E%3Cline x1='14' y1='63' x2='14' y2='74' stroke-linecap='round'/%3E%3Cline x1='20' y1='63' x2='20' y2='77' stroke-linecap='round'/%3E%3Cline x1='26' y1='63' x2='26' y2='74' stroke-linecap='round'/%3E%3Cline x1='32' y1='63' x2='32' y2='77' stroke-linecap='round'/%3E%3Cline x1='38' y1='63' x2='38' y2='74' stroke-linecap='round'/%3E%3C!-- ボトル --%3E%3Crect x='75' y='50' width='12' height='22' rx='3'/%3E%3Crect x='78' y='44' width='6' height='8' rx='2'/%3E%3C!-- 鏡 --%3E%3Cellipse cx='100' cy='20' rx='12' ry='16'/%3E%3Crect x='96' y='36' width='8' height='10' rx='2'/%3E%3C/g%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2020/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg opacity='.14' fill='none' stroke='%231B3A5C' stroke-width='1.5'%3E%3C!-- ドライヤー --%3E%3Crect x='10' y='8' width='20' height='14' rx='4'/%3E%3Cpath d='M30 15 L44 15 L44 19 L30 19'/%3E%3Ccircle cx='8' cy='22' r='4'/%3E%3C!-- はさみ --%3E%3Cpath d='M70 10 Q72 20 70 30' stroke-linecap='round'/%3E%3Cpath d='M76 10 Q74 20 76 30' stroke-linecap='round'/%3E%3Cellipse cx='67' cy='34' rx='5' ry='7'/%3E%3Cellipse cx='79' cy='34' rx='5' ry='7'/%3E%3C!-- くし --%3E%3Crect x='8' y='55' width='40' height='8' rx='3'/%3E%3Cline x1='14' y1='63' x2='14' y2='74' stroke-linecap='round'/%3E%3Cline x1='20' y1='63' x2='20' y2='77' stroke-linecap='round'/%3E%3Cline x1='26' y1='63' x2='26' y2='74' stroke-linecap='round'/%3E%3Cline x1='32' y1='63' x2='32' y2='77' stroke-linecap='round'/%3E%3Cline x1='38' y1='63' x2='38' y2='74' stroke-linecap='round'/%3E%3C!-- ボトル --%3E%3Crect x='75' y='50' width='12' height='22' rx='3'/%3E%3Crect x='78' y='44' width='6' height='8' rx='2'/%3E%3C!-- 鏡 --%3E%3Cellipse cx='100' cy='20' rx='12' ry='16'/%3E%3Crect x='96' y='36' width='8' height='10' rx='2'/%3E%3C/g%3E%3C/svg%3E");
       background-size: 120px 120px;
       pointer-events: none;
       z-index: 0;
@@ -244,10 +244,11 @@
     /* ── ヒーロー ── */
     .hero {
       position: relative;
-      min-height: 85vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       overflow: hidden;
+      background: linear-gradient(150deg, #fdf8f2 0%, #f2f7ee 55%, #fdf6ef 100%);
     }
     /* 背景ブロブ */
     .hero-blob {
@@ -269,29 +270,30 @@
     .hero-copy {}
     .hero-catch-small {
       display: inline-block;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: .72rem;
+      background: var(--peach);
+      color: white;
+      font-size: .75rem;
       font-weight: 700;
       letter-spacing: .15em;
-      padding: .3rem .9rem;
+      padding: .35rem 1.1rem;
       border-radius: 50px;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.6rem;
+      box-shadow: 0 2px 8px rgba(217,122,90,0.3);
     }
     .hero h1 {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      font-size: clamp(1.9rem, 3.8vw, 2.9rem);
       color: var(--navy);
-      line-height: 1.7;
+      line-height: 1.65;
       margin-bottom: 1.2rem;
-      font-weight: 600;
+      font-weight: 700;
     }
     .hero h1 span { color: var(--green); }
     .hero-tagline {
-      font-size: .82rem;
-      color: var(--text);
+      font-size: .9rem;
+      color: var(--navy-l);
       letter-spacing: .1em;
-      margin-bottom: .3rem;
+      margin-bottom: .35rem;
       position: relative;
       display: inline-block;
     }
