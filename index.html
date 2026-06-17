@@ -398,7 +398,7 @@
     }
 
     /* ── セクション共通 ── */
-    section { padding: 5rem 8vw; }
+    section { padding: 3.5rem 8vw; }
     .section-watermark {
       text-align: center;
       font-family: 'Noto Sans JP', sans-serif;
@@ -701,6 +701,16 @@
 
     /* ── AREA ── */
     .area-section { background: white; }
+    .area-map-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+    }
+    .area-map-svg {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+    }
     .area-box {
       max-width: 780px;
       margin: 0 auto;
@@ -950,10 +960,7 @@
       <h1>
         みなさまへ、<br class="sp-br"><span>心地よい散髪を。</span><br class="pc-br"><br class="sp-br">あなたのもとに、<br class="pc-br"><br class="sp-br">ひとの輪が伺います。
       </h1>
-      <p class="hero-tagline">介護の知識を持つ</p>
-      <p class="hero-tagline">経験豊富な理美容師が</p>
-      <p class="hero-tagline">訪問・出張して</p>
-      <p class="hero-tagline">サービスを提供いたします。</p>
+      <p class="hero-desc">介護の知識を持つ経験豊富な理美容師が、<br class="sp-br">訪問・出張してサービスを提供いたします。</p>
       <div class="hero-btns" style="margin-top:2rem">
         <a class="btn-yellow" href="#menu">料金を見る</a>
         <a class="btn-outline" href="#contact">お問い合わせはこちら</a>
@@ -1340,6 +1347,38 @@
 
   <div class="area-box">
     <p class="area-box-title">- 訪問対応エリア -</p>
+    <div class="area-map-wrap">
+      <svg class="area-map-svg" viewBox="0 0 320 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 放射線 -->
+        <line x1="160" y1="113" x2="160" y2="68" stroke="#9EC4A8" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="172" y1="108" x2="230" y2="70" stroke="#9EC4A8" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="175" y1="128" x2="242" y2="148" stroke="#9EC4A8" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="148" y1="108" x2="90" y2="70" stroke="#9EC4A8" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="145" y1="128" x2="78" y2="148" stroke="#9EC4A8" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <!-- 中心：水戸市 -->
+        <circle cx="160" cy="128" r="44" fill="rgba(107,158,122,0.14)" stroke="#6B9E7A" stroke-width="2"/>
+        <text x="160" y="123" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="700" fill="#1B3A5C">水戸市</text>
+        <text x="160" y="140" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#6B9E7A">メインエリア</text>
+        <!-- ひたちなか市：上 -->
+        <circle cx="160" cy="48" r="30" fill="rgba(240,184,154,0.12)" stroke="#F0B89A" stroke-width="1.5"/>
+        <text x="160" y="44" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8.5" fill="#1B3A5C">ひたちなか</text>
+        <text x="160" y="56" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8.5" fill="#1B3A5C">市</text>
+        <!-- 大洗町：右上 -->
+        <circle cx="240" cy="58" r="26" fill="rgba(240,184,154,0.12)" stroke="#F0B89A" stroke-width="1.5"/>
+        <text x="240" y="62" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#1B3A5C">大洗町</text>
+        <!-- 茨城町：右 -->
+        <circle cx="252" cy="150" r="26" fill="rgba(240,184,154,0.12)" stroke="#F0B89A" stroke-width="1.5"/>
+        <text x="252" y="154" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#1B3A5C">茨城町</text>
+        <!-- 笠間市：左 -->
+        <circle cx="68" cy="150" r="26" fill="rgba(240,184,154,0.12)" stroke="#F0B89A" stroke-width="1.5"/>
+        <text x="68" y="154" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#1B3A5C">笠間市</text>
+        <!-- 那珂市：左上 -->
+        <circle cx="80" cy="58" r="26" fill="rgba(240,184,154,0.12)" stroke="#F0B89A" stroke-width="1.5"/>
+        <text x="80" y="62" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#1B3A5C">那珂市</text>
+        <!-- 下部注記 -->
+        <text x="160" y="230" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#888">＊その他エリアもお気軽にご相談ください</text>
+      </svg>
+    </div>
     <div class="area-tags">
       <span class="area-tag" style="border-color:var(--green);font-weight:700;background:rgba(107,158,122,0.08)">水戸市</span>
       <span class="area-tag">笠間市</span>
