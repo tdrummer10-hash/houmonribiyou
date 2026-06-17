@@ -473,9 +473,14 @@
       line-height: 2.3;
       margin-bottom: 1.2rem;
       overflow-wrap: break-word;
+      word-break: keep-all;
     }
     .sp-br { display: none; }
     @media (min-width: 769px) {
+      p, li, .menu-note, .area-note, .contact-note, h3, h2 {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
       .feat1-img { width: 258px !important; height: auto !important; }
       .feat2-img { width: 291px !important; height: auto !important; }
       .feat3-img { width: 350px !important; height: auto !important; }
@@ -590,7 +595,7 @@
       margin-bottom: .6rem;
       letter-spacing: .05em;
     }
-    .feature-card p { font-size: .82rem; color: var(--muted); line-height: 1.9; }
+    .feature-card p { font-size: .82rem; color: var(--muted); line-height: 1.9; word-break: keep-all; overflow-wrap: break-word; }
 
     /* ── FLOW ── */
     .flow-section { background: var(--gray-bg); }
@@ -632,7 +637,7 @@
       color: var(--navy);
       margin-bottom: .6rem;
     }
-    .flow-card p { font-size: .78rem; color: var(--muted); line-height: 1.85; }
+    .flow-card p { font-size: .78rem; color: var(--muted); line-height: 1.85; word-break: keep-all; overflow-wrap: break-word; }
 
     /* ── MENU ── */
     .menu-section { background: white; }
@@ -1540,6 +1545,7 @@
     pointer-events: auto;
   }
   #scroll-top:hover { background: var(--green-l); }
+  @media (max-width: 768px) { #scroll-top { display: none !important; } }
 </style>
 <script>
   const scrollTopBtn = document.getElementById('scroll-top');
