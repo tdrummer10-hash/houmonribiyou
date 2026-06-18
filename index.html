@@ -1488,21 +1488,26 @@
     var btn = document.getElementById('form-submit-btn');
     btn.disabled = true;
     btn.textContent = '送信中...';
+    var data = new FormData(form);
     fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
+      body: data,
       headers: { 'Accept': 'application/json' }
     }).then(function(res) {
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-      } else {
-        form.style.display = 'none';
-        document.getElementById('form-error').style.display = 'block';
-      }
-    }).catch(function() {
+      return res.json().then(function(json) {
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          form.style.display = 'none';
+          document.getElementById('form-error').style.display = 'block';
+          console.error('Formspree error:', json);
+        }
+      });
+    }).catch(function(err) {
       form.style.display = 'none';
       document.getElementById('form-error').style.display = 'block';
+      console.error('Fetch error:', err);
     });
   });
 })();
