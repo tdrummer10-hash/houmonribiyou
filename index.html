@@ -378,6 +378,10 @@
     }
     @media (min-width: 769px) {
       .hero-art img { width: clamp(780px, 58vw, 1080px); }
+      a[href^="tel:"], a[href^="mailto:"] {
+        pointer-events: none;
+        cursor: default;
+      }
     }
 
     /* ── はさみ区切り ── */
